@@ -77,6 +77,7 @@ rpm:
     - rust-tealdeer
     - rust-lsd
     - rust-zoxide
+    - thefuck
 
     # These RPMs will be removed from the system image. This step happens during
     # image build, BEFORE installing custom RPMs (from the "rpm.install" category).
@@ -87,6 +88,7 @@ rpm:
     - gnome-tour
     - gnome-terminal-nautilus
     - gnome-terminal
+    - toolbox
 
 # Configuration for the "first boot" experience, which is available after login.
 firstboot:
