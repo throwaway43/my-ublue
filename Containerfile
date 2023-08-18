@@ -71,6 +71,5 @@ RUN wget -P /usr/share/fonts https://github.com/romkatv/powerlevel10k-media/raw/
     wget -P /usr/share/fonts https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
 
 RUN systemctl disable NetworkManager-wait-online.service && \
-    systemctl stop rpm-ostree-countme.timer &&\
-    systemctl mask --now rpm-ostree-countme.timer
+    systemctl mask rpm-ostree-countme.timer
     
