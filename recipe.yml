@@ -49,7 +49,6 @@ rpm:
     # Example (which also demonstrates version number expansion):
     # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%FEDORA_VERSION%/atim-starship-fedora-%FEDORA_VERSION%.repo
     - https://copr.fedorainfracloud.org/coprs/itsmefma/Kloak/repo/fedora-%FEDORA_VERSION%/itsmefma-Kloak-fedora-%FEDORA_VERSION%.repo
-    - https://raw.githubusercontent.com/divestedcg/Divested-Release/master/divested-release.repo
 
   # These RPMs will be installed from your enabled repositories (Fedora's own
   # repos, extra "repos" you've added, etc). The installation is automatically
@@ -67,7 +66,6 @@ rpm:
     # Example:
     # - tilix
     - kloak
-    - hardened_malloc
     - opendoas
     - stow
     - usbguard-dbus
