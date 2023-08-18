@@ -20,3 +20,22 @@ kargs:
 zsh:
   sudo lchsh $USER /usr/bin/zsh
 
+# Setting up essentials on first-boot
+first-boot:
+  sudo btrfs subvolume snapshot -r /var/home /var/home/.snapshots/home-1
+  sudo ostree admin pin 0
+
+# Setting up ZSH Quickstart Kit
+zshqsk:
+  git clone https://github.com/jandamm/zgenom.git $HOME/zgenom
+  git clone https://github.com/unixorn/zsh-quickstart-kit.git $HOME/zsh-quickstart-kit
+  stow --dir=$HOME/zsh-quickstart-kit --target="$HOME" zsh
+  source ~/.zshrc
+  zqs disable-ssh-key-listing
+  zqs disable-ssh-key-loading
+  p10k configure
+
+# Networkmanager trackability reduction
+  sudo nmcli general reload conf
+  sudo systemctl restart NetworkManager
+  sudo hostnamectl hostname "localhost"
