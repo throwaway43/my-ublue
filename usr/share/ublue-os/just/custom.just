@@ -36,6 +36,52 @@ zshqsk:
   p10k configure
 
 # Networkmanager trackability reduction
+nm-track-reduc:
   sudo nmcli general reload conf
   sudo systemctl restart NetworkManager
   sudo hostnamectl hostname "localhost"
+  sudo cd /etc/NetworkManager/dispatcher.d/
+  sudo chown root:root no-wait.d/01-no-send-hostname.sh
+  sudo chmod 744 no-wait.d/01-no-send-hostname.sh
+  sudo ln -s no-wait.d/01-no-send-hostname.sh ./
+
+# Firewall
+firewall:
+  firewall-cmd --set-default-zone=drop
+  firewall-cmd --add-protocol=ipv6-icmp --permanent
+  firewall-cmd --add-service=dhcpv6-client --permanent
+
+# PAM
+pam:
+  sudo authselect select minimal with-faillock without-nullok with-pamaccess
+
+# USBGuard
+usbguard:
+  usbguard generate-policy > $HOME/rules.conf
+  cd $HOME
+  sudo install -m 0600 -o root -g root rules.conf /etc/usbguard/rules.conf
+  systemctl start usbguard-dbus.service
+  systemctl enable usbguard-dbus.service
+  gsettings set org.gnome.desktop.privacy usb-protection true
+  gsettings set org.gnome.desktop.privacy usb-protection-level always
+
+# Storage Media Handling
+udisks:
+  echo '[org/gnome/desktop/media-handling]
+  automount=false
+  automount-open=false' | sudo tee /etc/dconf/db/local.d/automount-disable
+  echo 'org/gnome/desktop/media-handling/automount
+  org/gnome/desktop/media-handling/automount-open' | sudo tee /etc/dconf/db/local.d/locks/automount-disable
+  sudo dconf update
+
+# Flatpak Permissions
+flatpak-permissions:
+  flatpak override --user --nofilesystem=home
+  flatpak override --user --nofilesystem=host
+
+# Auto-cpufreq
+auto-cpufreq:
+  git clone https://github.com/AdnanHodzic/auto-cpufreq.git $HOME/auto-cpufreq
+  cd $HOME/auto-cpufreq && sudo ./auto-cpufreq-installer --install
+  sudo auto-cpufreq --install
+  sudo auto-cpufreq --force=powersave
