@@ -58,17 +58,17 @@ RUN rpm-ostree install /tmp/ublue-os-wallpapers-0.1-1.fc38.noarch.rpm && \
 
 # Cleanup & Finalize
 
-RUN wget https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/sysctl.d/30_security-misc.conf -O /usr/etc/sysctl.d/30_security-misc.conf && \
-    wget https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/sysctl.d/30_security-misc_kexec-disable.conf -O /usr/etc/sysctl.d/30_security-misc_kexec-disable.conf && \
-    wget https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/sysctl.d/30_silent-kernel-printk.conf -O /usr/etc/sysctl.d/30_silent-kernel-printk.conf && \
-    wget https://raw.githubusercontent.com/throwaway43/security-misc/master/etc/modprobe.d/30_security-misc.conf -O /usr/etc/modprobe.d/30_security-misc.conf
+RUN wget -P /usr/etc/sysctl.d https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/sysctl.d/30_security-misc.conf && \
+    wget -P /usr/etc/sysctl.d https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/sysctl.d/30_security-misc_kexec-disable.conf && \
+    wget -P /usr/etc/sysctl.d https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/sysctl.d/30_silent-kernel-printk.conf && \
+    wget -P /usr/etc/modprobe.d https://raw.githubusercontent.com/throwaway43/security-misc/master/etc/modprobe.d/30_security-misc.conf
 
-RUN wget https://raw.githubusercontent.com/GrapheneOS/infrastructure/main/chrony.conf -O /usr/etc/chrony.conf
+RUN wget -P /usr/etc https://raw.githubusercontent.com/GrapheneOS/infrastructure/main/chrony.conf
 
-RUN wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf -O /usr/share/fonts/'MesloLGS NF'/'MesloLGS NF Regular.ttf' && \
-    wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf -O /usr/share/fonts/'MesloLGS NF'/'MesloLGS NF Bold.ttf' && \
-    wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf -O /usr/share/fonts/'MesloLGS NF'/'MesloLGS NF Italic.ttf' && \
-    wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf -O /usr/share/fonts/'MesloLGS NF'/'MesloLGS NF Bold Italic.ttf'
+RUN wget -P /usr/share/fonts https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf && \
+    wget -P /usr/share/fonts https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf && \
+    wget -P /usr/share/fonts https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf && \
+    wget -P /usr/share/fonts https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
 
 RUN systemctl disable NetworkManager-wait-online.service && \
     systemctl stop rpm-ostree-countme.timer &&\
