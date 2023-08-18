@@ -60,7 +60,7 @@ RUN rpm-ostree install /tmp/ublue-os-wallpapers-0.1-1.fc38.noarch.rpm && \
 
 RUN wget https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/sysctl.d/30_security-misc.conf -O /usr/etc/sysctl.d && \
     wget https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/sysctl.d/30_security-misc_kexec-disable.conf -O /usr/etc/sysctl.d && \
-    wget https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/sysctl.d/30_silent-kernel-printk.conf -O /usr/etc/sysctl.d \
+    wget https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/sysctl.d/30_silent-kernel-printk.conf -O /usr/etc/sysctl.d && \
     wget https://raw.githubusercontent.com/throwaway43/security-misc/master/etc/modprobe.d/30_security-misc.conf -O /usr/etc/modprobe.d
 
 RUN wget https://raw.githubusercontent.com/GrapheneOS/infrastructure/main/chrony.conf -O /usr/etc
