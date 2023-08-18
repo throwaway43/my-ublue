@@ -63,6 +63,11 @@ RUN wget https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/s
     wget https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/sysctl.d/30_silent-kernel-printk.conf -O /usr/etc/sysctl.d \
     wget https://raw.githubusercontent.com/throwaway43/security-misc/master/etc/modprobe.d/30_security-misc.conf -O /usr/etc/modprobe.d
 
+RUN wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf -O /usr/share/fonts/'MesloLGS NF'/
+    wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf -O /usr/share/fonts/'MesloLGS NF'/
+    wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf -O /usr/share/fonts/'MesloLGS NF'/
+    wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf -O /usr/share/fonts/'MesloLGS NF'/
+
 RUN systemctl disable NetworkManager-wait-online.service && \
     systemctl stop rpm-ostree-countme.timer &&\
     systemctl mask --now rpm-ostree-countme.timer
