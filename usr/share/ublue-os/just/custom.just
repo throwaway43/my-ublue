@@ -36,19 +36,7 @@ zsh-qsk:
   gsettings set org.gnome.desktop.interface monospace-font-name 'MesloLGS NF 10'
   stow --dir=$HOME/zsh-quickstart-kit --target="$HOME" zsh
   wget -P $HOME https://raw.githubusercontent.com/throwaway43/dotfiles/main/.p10k.zsh
-  zsh
-
-# test
-test:
-  zqs disable-ssh-key-listing
-  zqs disable-ssh-key-loading
-  echo "alias sudo=doas" > $HOME/.zshrc.d/001-doas
-  echo "alias ls=lsd" > $HOME/.zshrc.d/002-lsd
-  echo "alias cat=bat" > $HOME/.zshrc.d/003-bat
-  echo "alias cd=z" > $HOME/.zshrc.d/004-zoxide
-  source $HOME/.zshrc
-
-# printf "Run the following commands:\nsource $HOME/.zshrc\nzqs disable-ssh-key-listing\nzqs disable-ssh-key-loading\n"
+  printf "Run the following commands:\nzqs disable-ssh-key-listing\nzqs disable-ssh-key-loading\n"
 
 # Setting up aliases for ZSH
 zsh-alias:
@@ -56,9 +44,7 @@ zsh-alias:
   echo "alias ls=lsd" > $HOME/.zshrc.d/002-lsd
   echo "alias cat=bat" > $HOME/.zshrc.d/003-bat
   echo "alias cd=z" > $HOME/.zshrc.d/004-zoxide
-  source $HOME/.zshrc
-
-# printf "Don't forget the following command:\nsource $HOME/.zshrc\n"
+  zsh -c echo "Well done!"
 
 # Networkmanager trackability reduction
 nm-track-reduc:
