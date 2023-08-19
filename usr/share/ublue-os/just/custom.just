@@ -41,6 +41,11 @@ zsh-qsk:
   source $HOME/.zshrc
   zqs disable-ssh-key-listing
   zqs disable-ssh-key-loading
+  echo "alias sudo=doas" > $HOME/.zshrc.d/001-doas
+  echo "alias ls=lsd" > $HOME/.zshrc.d/002-lsd
+  echo "alias cat=bat" > $HOME/.zshrc.d/003-bat
+  echo "alias cd=z" > $HOME/.zshrc.d/004-zoxide
+  source $HOME/.zshrc
 
 # printf "Run the following commands:\nsource $HOME/.zshrc\nzqs disable-ssh-key-listing\nzqs disable-ssh-key-loading\n"
 
