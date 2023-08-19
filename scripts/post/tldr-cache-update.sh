@@ -1,1 +1,1 @@
-tldr --cache
+tldr --update
