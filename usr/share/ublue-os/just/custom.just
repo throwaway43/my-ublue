@@ -30,7 +30,7 @@ zshqsk:
   git clone https://github.com/jandamm/zgenom.git $HOME/zgenom
   git clone https://github.com/unixorn/zsh-quickstart-kit.git $HOME/zsh-quickstart-kit
   stow --dir=$HOME/zsh-quickstart-kit --target="$HOME" zsh
-  source ~/.zshrc
+  source $HOME/.zshrc
   zqs disable-ssh-key-listing
   zqs disable-ssh-key-loading
   p10k configure
