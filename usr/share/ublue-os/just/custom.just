@@ -43,7 +43,8 @@ zsh-alias:
   echo "alias sudo=doas" > $HOME/.zshrc.d/001-doas
   echo "alias ls=lsd" > $HOME/.zshrc.d/002-lsd
   echo "alias cat=bat" > $HOME/.zshrc.d/003-bat
-  echo "alias cd=z" > $HOME/.zshrc.d/004-zoxide
+  echo "alias cd=z" > $HOME/.zshrc.d/004-zoxide-alias
+  echo "eval "$(zoxide init zsh)" > $HOME/.zshrc.d/004-zoxide-setup
   printf "Don't forget to run 'source $HOME/.zshrc'"
 
 # Networkmanager trackability reduction
