@@ -93,4 +93,4 @@ recover-home:
 
 # Change machine-id
 machine-id:
-  echt "b08dfa6083e7567a1921a715000001fb" | sudo tee /etc/machine-id /var/lib/dbus/machine-id
+  echo "b08dfa6083e7567a1921a715000001fb" | sudo tee /etc/machine-id /var/lib/dbus/machine-id
