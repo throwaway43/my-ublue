@@ -98,5 +98,5 @@ auto-cpufreq:
   sudo auto-cpufreq --force=powersave
 
 # Recover home from snapshot
-recover-home
+recover-home:
   sudo cp -pr /var/home/.snapshots/home-1/user .
