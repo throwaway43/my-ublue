@@ -27,7 +27,6 @@ first-boot:
 
 # Setting up ZSH Quickstart Kit and the necessary font
 zsh-qsk:
-  #!/usr/bin/env zsh
   git clone https://github.com/jandamm/zgenom.git $HOME/zgenom
   git clone https://github.com/unixorn/zsh-quickstart-kit.git $HOME/zsh-quickstart-kit
   wget -P $HOME/.local/share/fonts/'MesloLGS NF' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
@@ -37,7 +36,10 @@ zsh-qsk:
   gsettings set org.gnome.desktop.interface monospace-font-name 'MesloLGS NF 10'
   stow --dir=$HOME/zsh-quickstart-kit --target="$HOME" zsh
   wget -P $HOME https://raw.githubusercontent.com/throwaway43/dotfiles/main/.p10k.zsh
-  source $HOME/.zshrc
+  zsh
+
+# test
+test:
   zqs disable-ssh-key-listing
   zqs disable-ssh-key-loading
   echo "alias sudo=doas" > $HOME/.zshrc.d/001-doas
