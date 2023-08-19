@@ -44,7 +44,7 @@ zsh-alias:
   echo "alias ls=lsd" > $HOME/.zshrc.d/002-lsd
   echo "alias cat=bat" > $HOME/.zshrc.d/003-bat
   echo "alias cd=z" > $HOME/.zshrc.d/004-zoxide
-  zsh -c echo "Well done!"
+  printf "Don't forget to run 'source $HOME/.zshrc'"
 
 # Networkmanager trackability reduction
 nm-track-reduc:
@@ -78,11 +78,11 @@ usbguard:
 
 # Storage Media Handling
 udisks:
-  echo '[org/gnome/desktop/media-handling]
-  automount=false
-  automount-open=false' | sudo tee /etc/dconf/db/local.d/automount-disable
-  echo 'org/gnome/desktop/media-handling/automount
-  org/gnome/desktop/media-handling/automount-open' | sudo tee /etc/dconf/db/local.d/locks/automount-disable
+  echo '[org/gnome/desktop/media-handling]' | sudo tee /etc/dconf/db/local.d/automount-disable
+  echo 'automount=false' | sudo tee -a /etc/dconf/db/local.d/automount-disable
+  echo 'automount-open=false' | sudo tee -a /etc/dconf/db/local.d/automount-disable
+  echo 'org/gnome/desktop/media-handling/automount' | sudo tee /etc/dconf/db/local.d/locks/automount-disable
+  echo 'org/gnome/desktop/media-handling/automount-open' | sudo tee /etc/dconf/db/local.d/locks/automount-disable
   sudo dconf update
 
 # Take away the Flatpak Permissions for home and system by default
