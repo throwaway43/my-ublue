@@ -50,7 +50,9 @@ zsh-alias:
   echo "alias ls=lsd" > $HOME/.zshrc.d/002-lsd
   echo "alias cat=bat" > $HOME/.zshrc.d/003-bat
   echo "alias cd=z" > $HOME/.zshrc.d/004-zoxide
-  printf "Don't forget the following command:\nsource $HOME/.zshrc\n"
+  source $HOME/.zshrc
+
+# printf "Don't forget the following command:\nsource $HOME/.zshrc\n"
 
 # Networkmanager trackability reduction
 nm-track-reduc:
