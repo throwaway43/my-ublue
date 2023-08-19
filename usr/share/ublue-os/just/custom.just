@@ -99,4 +99,5 @@ auto-cpufreq:
 
 # Recover home from snapshot
 recover-home:
+  cd /var/home
   sudo cp -pr /var/home/.snapshots/home-1/user .
