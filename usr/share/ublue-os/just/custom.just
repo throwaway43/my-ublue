@@ -30,23 +30,19 @@ zsh1:
   git clone https://github.com/jandamm/zgenom.git $HOME/zgenom
   git clone https://github.com/unixorn/zsh-quickstart-kit.git $HOME/zsh-quickstart-kit
   stow --dir=$HOME/zsh-quickstart-kit --target="$HOME" zsh
-  source $HOME/.zshrc
-  zqs disable-ssh-key-listing
-  zqs disable-ssh-key-loading
-  p10k configure
 
-# Setting up ZSH Quickstart Kit (step2)
+# Setting up ZSH Quickstart Kit (step2a)
 zsh2:
   source $HOME/.zshrc
   zqs disable-ssh-key-listing
   zqs disable-ssh-key-loading
   p10k configure
 
-# Setting up ZSH Quickstart Kit (step2a)
+# Setting up ZSH Quickstart Kit (step2b)
 zsh2a:
   source $HOME/.zshrc
 
-# Setting up ZSH Quickstart Kit (step3)
+# Setting up ZSH Quickstart Kit (step2b3)
 zsh3:
   zqs disable-ssh-key-listing
   zqs disable-ssh-key-loading
