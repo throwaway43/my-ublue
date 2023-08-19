@@ -91,6 +91,10 @@ recover-home:
 machine-id:
   echo "b08dfa6083e7567a1921a715000001fb" | sudo tee /etc/machine-id /var/lib/dbus/machine-id
 
+# Initialization for tldr:
+tldr:
+  tldr --update
+
 # Configure GNOME to your liking
 gsettings:
   gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
