@@ -97,6 +97,7 @@ auto-cpufreq-1:
   sudo $HOME/auto-cpufreq/auto-cpufreq-installer
 
 # Setup Auto-cpufreq (Step 2)
+auto-cpufreq-2
   sudo auto-cpufreq --install
   sudo auto-cpufreq --force=powersave
 
