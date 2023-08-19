@@ -30,11 +30,7 @@ zshqsk:
   git clone https://github.com/jandamm/zgenom.git $HOME/zgenom
   git clone https://github.com/unixorn/zsh-quickstart-kit.git $HOME/zsh-quickstart-kit
   stow --dir=$HOME/zsh-quickstart-kit --target="$HOME" zsh
-  echo "Run the following command:"
-  echo "source $HOME/.zshrc"
-  echo "zqs disable-ssh-key-listing"
-  echo "zqs disable-ssh-key-loading"
-  echo "p10k configure"
+  printf "Run the following commands:\nsource $HOME/.zshrc\nzqs disable-ssh-key-listing\nzqs disable-ssh-key-loading\np10k configure"
   
 # Networkmanager trackability reduction
 nm-track-reduc:
