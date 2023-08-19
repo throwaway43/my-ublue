@@ -93,10 +93,12 @@ flatpak-permissions:
   flatpak override --user --nofilesystem=home
   flatpak override --user --nofilesystem=host
 
-# Setup Auto-cpufreq
-auto-cpufreq:
+# Setup Auto-cpufreq (Step 1)
+auto-cpufreq-1:
   git clone https://github.com/AdnanHodzic/auto-cpufreq.git $HOME/auto-cpufreq
-  cd $HOME/auto-cpufreq && sudo ./auto-cpufreq-installer --install
+  sudo $HOME/auto-cpufreq/auto-cpufreq-installer
+
+# Setup Auto-cpufreq (Step 2)
   sudo auto-cpufreq --install
   sudo auto-cpufreq --force=powersave
 
