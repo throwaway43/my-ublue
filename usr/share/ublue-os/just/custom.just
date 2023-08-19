@@ -94,3 +94,5 @@ auto-cpufreq:
 # Recover home from snapshot
 recover-home:
   sudo cp -pr /var/home/.snapshots/home-1/user /var/home/
+
+# Sync machine-id
