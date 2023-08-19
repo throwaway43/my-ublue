@@ -73,6 +73,7 @@ usbguard:
   cd $HOME
   sudo install -m 0600 -o root -g root rules.conf /etc/usbguard/rules.conf
   rm $HOME/rules.conf
+  sudo rm /var/log/usbguard/usbguard-audit.log
   systemctl start usbguard-dbus.service
   systemctl enable usbguard-dbus.service
   gsettings set org.gnome.desktop.privacy usb-protection true
