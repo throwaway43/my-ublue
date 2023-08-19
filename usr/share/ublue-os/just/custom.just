@@ -35,6 +35,17 @@ zshqsk:
   zqs disable-ssh-key-loading
   p10k configure
 
+# Setting up ZSH Quickstart Kit
+zshqsk1:
+  git clone https://github.com/jandamm/zgenom.git $HOME/zgenom
+  git clone https://github.com/unixorn/zsh-quickstart-kit.git $HOME/zsh-quickstart-kit
+  cd $HOME/zsh-quickstart-kit
+  stow --target="$HOME" zsh
+  source $HOME/.zshrc
+  zqs disable-ssh-key-listing
+  zqs disable-ssh-key-loading
+  p10k configure
+
 # Networkmanager trackability reduction
 nm-track-reduc:
   sudo nmcli general reload conf
@@ -74,14 +85,18 @@ udisks:
   org/gnome/desktop/media-handling/automount-open' | sudo tee /etc/dconf/db/local.d/locks/automount-disable
   sudo dconf update
 
-# Flatpak Permissions
+# Take away the Flatpak Permissions for home and system by default
 flatpak-permissions:
   flatpak override --user --nofilesystem=home
   flatpak override --user --nofilesystem=host
 
-# Auto-cpufreq
+# Setup Auto-cpufreq
 auto-cpufreq:
   git clone https://github.com/AdnanHodzic/auto-cpufreq.git $HOME/auto-cpufreq
   cd $HOME/auto-cpufreq && sudo ./auto-cpufreq-installer --install
   sudo auto-cpufreq --install
   sudo auto-cpufreq --force=powersave
+
+# Recover home from snapshot
+recover-home
+  sudo cp -pr /var/home/.snapshots/home-1/user .
