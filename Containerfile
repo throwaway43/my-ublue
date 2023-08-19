@@ -70,6 +70,8 @@ RUN wget -P /usr/share/fonts/'MesloLGS NF' https://github.com/romkatv/powerlevel
     wget -P /usr/share/fonts/'MesloLGS NF' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf && \
     wget -P /usr/share/fonts/'MesloLGS NF' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
 
+RUN rpm-ostree install google-droid-fonts-all
+
 RUN systemctl disable NetworkManager-wait-online.service && \
     systemctl mask rpm-ostree-countme.timer
     
