@@ -30,16 +30,12 @@ zshqsk:
   git clone https://github.com/jandamm/zgenom.git $HOME/zgenom
   git clone https://github.com/unixorn/zsh-quickstart-kit.git $HOME/zsh-quickstart-kit
   stow --dir=$HOME/zsh-quickstart-kit --target="$HOME" zsh
-  echo "Run the following command:
-  source $HOME/.zshrc
-  zqs disable-ssh-key-listing
-  zqs disable-ssh-key-loading
-  p10k configure"
-
-# Setting up ZSH Quickstart Kit (step 2)
-zshqsk2:
+  echo "Run the following command:"
+  echo "source $HOME/.zshrc"
+  echo "zqs disable-ssh-key-listing"
+  echo "zqs disable-ssh-key-loading"
+  echo "p10k configure"
   
-
 # Networkmanager trackability reduction
 nm-track-reduc:
   sudo nmcli general reload conf
