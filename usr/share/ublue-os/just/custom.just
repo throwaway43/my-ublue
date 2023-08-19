@@ -25,18 +25,20 @@ first-boot:
   sudo btrfs subvolume snapshot -r /var/home /var/home/.snapshots/home-1
   sudo ostree admin pin 0
 
-# Setting up ZSH Quickstart Kit (step 1)
-zshqsk1:
+# Setting up ZSH Quickstart Kit
+zshqsk:
   git clone https://github.com/jandamm/zgenom.git $HOME/zgenom
   git clone https://github.com/unixorn/zsh-quickstart-kit.git $HOME/zsh-quickstart-kit
   stow --dir=$HOME/zsh-quickstart-kit --target="$HOME" zsh
-  echo "Run the following command: 'source $HOME/.zshrc' "
+  echo "Run the following command:
+  source $HOME/.zshrc
+  zqs disable-ssh-key-listing
+  zqs disable-ssh-key-loading
+  p10k configure"
 
 # Setting up ZSH Quickstart Kit (step 2)
 zshqsk2:
-  zqs disable-ssh-key-listing
-  zqs disable-ssh-key-loading
-  p10k configure
+  
 
 # Networkmanager trackability reduction
 nm-track-reduc:
