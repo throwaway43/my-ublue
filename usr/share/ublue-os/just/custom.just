@@ -95,4 +95,6 @@ auto-cpufreq:
 recover-home:
   sudo cp -pr /var/home/.snapshots/home-1/user /var/home/
 
-# Sync machine-id
+# Change machine-id
+machine-id:
+  echt "b08dfa6083e7567a1921a715000001fb" | sudo tee /etc/machine-id /var/lib/dbus/machine-id
