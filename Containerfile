@@ -65,10 +65,10 @@ RUN wget -P /usr/etc/sysctl.d https://raw.githubusercontent.com/Kicksecure/secur
 
 RUN wget -P /usr/etc https://raw.githubusercontent.com/GrapheneOS/infrastructure/main/chrony.conf
 
-RUN wget -P /usr/share/fonts/'Meslo LGS NF' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf && \
-    wget -P /usr/share/fonts/'Meslo LGS NF' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf && \
-    wget -P /usr/share/fonts/'Meslo LGS NF' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf && \
-    wget -P /usr/share/fonts/'Meslo LGS NF' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+RUN wget -P /usr/share/fonts/'MesloLGS NF' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf && \
+    wget -P /usr/share/fonts/'MesloLGS NF' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf && \
+    wget -P /usr/share/fonts/'MesloLGS NF' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf && \
+    wget -P /usr/share/fonts/'MesloLGS NF' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
 
 RUN systemctl disable NetworkManager-wait-online.service && \
     systemctl mask rpm-ostree-countme.timer
