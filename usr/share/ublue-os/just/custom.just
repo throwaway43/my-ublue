@@ -52,8 +52,7 @@ nm-track-reduc:
   sudo nmcli general reload conf
   sudo systemctl restart NetworkManager
   sudo hostnamectl hostname "localhost"
-  sudo cd /etc/NetworkManager/dispatcher.d/
-  sudo chown root:root no-wait.d/01-no-send-hostname.sh
+  sudo chown root:root /etc/NetworkManager/dispatcher.d/no-wait.d/01-no-send-hostname.sh
   sudo chmod 744 no-wait.d/01-no-send-hostname.sh
   sudo ln -s no-wait.d/01-no-send-hostname.sh ./
 
@@ -70,8 +69,7 @@ pam:
 # USBGuard
 usbguard:
   usbguard generate-policy > $HOME/rules.conf
-  cd $HOME
-  sudo install -m 0600 -o root -g root rules.conf /etc/usbguard/rules.conf
+  sudo install -m 0600 -o root -g root $HOME/rules.conf /etc/usbguard/rules.conf
   rm $HOME/rules.conf
   sudo rm -f /var/log/usbguard/usbguard-audit.log
   systemctl start usbguard-dbus.service
