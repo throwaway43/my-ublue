@@ -12,6 +12,8 @@ setup-flatpaks:
 
 # Include some of your custom scripts here!
 
+set shell := ["zsh", "-uc"]
+
 # Enable kernel arguments
 kargs:
   rpm-ostree kargs --append="rd.luks.options=discard" --append="spectre_v2=on spec_store_bypass_disable=on" --append="l1tf=full,force" --append="mds=full" --append="tsx=off" --append="tsx_async_abort=full" --append="kvm.nx_huge_pages=force" --append="l1d_flush=on" --append="mmio_stale_data=full" --append="slab_nomerge" --append="init_on_alloc=1" --append="init_on_free=1" --append="pti=on" --append="vsyscall=none" --append="page_alloc.shuffle=1" --append="randomize_kstack_offset=on" --append="extra_latent_entropy" --append="debugfs=off" --append="oops=panic" --append="quiet" --append="loglevel=0" --append="random.trust_cpu=off" --append="random.trust_bootloader=off" --append="intel_iommu=on" --append="amd_iommu=on" --append="iommu.passthrough=0" --append="iommu.strict=1"
@@ -36,7 +38,11 @@ zsh-qsk:
   gsettings set org.gnome.desktop.interface monospace-font-name 'MesloLGS NF 10'
   stow --dir=$HOME/zsh-quickstart-kit --target="$HOME" zsh
   wget -P $HOME https://raw.githubusercontent.com/throwaway43/dotfiles/main/.p10k.zsh
-  printf "Run the following commands:\nsource $HOME/.zshrc\nzqs disable-ssh-key-listing\nzqs disable-ssh-key-loading\n"
+  source $HOME/.zshrc
+  zqs disable-ssh-key-listing
+  zqs disable-ssh-key-loading
+
+# printf "Run the following commands:\nsource $HOME/.zshrc\nzqs disable-ssh-key-listing\nzqs disable-ssh-key-loading\n"
 
 # Setting up aliases for ZSH
 zsh-alias:
