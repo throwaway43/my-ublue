@@ -44,7 +44,7 @@ zsh-alias:
   echo "alias ls=lsd" > $HOME/.zshrc.d/002-lsd
   echo "alias cat=bat" > $HOME/.zshrc.d/003-bat
   echo "alias cd=z" > $HOME/.zshrc.d/004-zoxide-alias
-  echo "eval "$(zoxide init zsh)" > $HOME/.zshrc.d/004-zoxide-setup
+  echo 'eval "$(zoxide init zsh)"' > $HOME/.zshrc.d/004-zoxide-setup
   printf "Don't forget to run 'source $HOME/.zshrc'"
 
 # Networkmanager trackability reduction
@@ -73,7 +73,7 @@ usbguard:
   cd $HOME
   sudo install -m 0600 -o root -g root rules.conf /etc/usbguard/rules.conf
   rm $HOME/rules.conf
-  sudo rm /var/log/usbguard/usbguard-audit.log
+  sudo rm -f /var/log/usbguard/usbguard-audit.log
   systemctl start usbguard-dbus.service
   systemctl enable usbguard-dbus.service
   gsettings set org.gnome.desktop.privacy usb-protection true
