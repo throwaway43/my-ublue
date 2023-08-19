@@ -25,10 +25,14 @@ first-boot:
   sudo btrfs subvolume snapshot -r /var/home /var/home/.snapshots/home-1
   sudo ostree admin pin 0
 
-# Setting up ZSH Quickstart Kit
+# Setting up ZSH Quickstart Kit and the necessary font
 zsh-qsk:
   git clone https://github.com/jandamm/zgenom.git $HOME/zgenom
   git clone https://github.com/unixorn/zsh-quickstart-kit.git $HOME/zsh-quickstart-kit
+  wget -P $HOME/.local/share/fonts/'MesloLGS NF' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+  wget -P $HOME/.local/share/fonts/'MesloLGS NF' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
+  wget -P $HOME/.local/share/fonts/'MesloLGS NF' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
+  wget -P $HOME/.local/share/fonts/'MesloLGS NF' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
   stow --dir=$HOME/zsh-quickstart-kit --target="$HOME" zsh
   printf "Run the following commands:\nsource $HOME/.zshrc\nzqs disable-ssh-key-listing\nzqs disable-ssh-key-loading\np10k configure\n"
 
