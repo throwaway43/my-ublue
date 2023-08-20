@@ -66,7 +66,7 @@ firewall:
 pam:
   sudo authselect select minimal with-faillock without-nullok with-pamaccess
 
-# USBGuard
+# USBGuard - LET OP! Dit keer diende /var/log/usbguard/usbguard-audit.log getouchd te worden (wss was ook het verwijderen dus zinloos), ook de directory waar de log in zat*
 usbguard:
   usbguard generate-policy > $HOME/rules.conf
   sudo install -m 0600 -o root -g root $HOME/rules.conf /etc/usbguard/rules.conf
