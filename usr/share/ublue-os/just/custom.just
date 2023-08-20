@@ -29,13 +29,13 @@ first-boot:
 zsh-qsk:
   git clone https://github.com/jandamm/zgenom.git $HOME/zgenom
   git clone https://github.com/unixorn/zsh-quickstart-kit.git $HOME/zsh-quickstart-kit
-  wget -P $HOME/.local/share/fonts/'MesloLGS NF' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
-  wget -P $HOME/.local/share/fonts/'MesloLGS NF' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
-  wget -P $HOME/.local/share/fonts/'MesloLGS NF' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
-  wget -P $HOME/.local/share/fonts/'MesloLGS NF' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+  wget -O $HOME/.local/share/fonts/'MesloLGS NF'/'MesloLGS NF Regular.ttf' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+  wget -O $HOME/.local/share/fonts/'MesloLGS NF'/'MesloLGS NF Bold.ttf' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
+  wget -O $HOME/.local/share/fonts/'MesloLGS NF'/'MesloLGS NF Italic.ttf' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
+  wget -O $HOME/.local/share/fonts/'MesloLGS NF'/'MesloLGS NF Bold Italic.ttf' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
   gsettings set org.gnome.desktop.interface monospace-font-name 'MesloLGS NF 10'
   stow --dir=$HOME/zsh-quickstart-kit --target="$HOME" zsh
-  wget -P $HOME https://raw.githubusercontent.com/throwaway43/dotfiles/main/.p10k.zsh
+  wget -O $HOME https://raw.githubusercontent.com/throwaway43/dotfiles/main/.p10k.zsh
   printf "Run the following commands:\nzqs disable-ssh-key-listing\nzqs disable-ssh-key-loading\n"
 
 # Setting up aliases for ZSH
