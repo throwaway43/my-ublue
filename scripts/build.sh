@@ -77,6 +77,7 @@ if [[ "${YAFTI_ENABLED}" == "true" ]]; then
     pip install --prefix=/usr yafti
     # Create symlink to our profile script, which creates the per-user "autorun yafti" links.
     mkdir -p "$(dirname "${FIRSTBOOT_LINK}")"
+    ln -s "${FIRSTBOOT_DATA}/launcher/login-profile.sh" "${FIRSTBOOT_LINK}"
 else
     echo "-- firstboot: Removing all \"firstboot\" components --"
     # Removes the script symlink that creates the per-user autostart symlinks.
