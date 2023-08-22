@@ -63,7 +63,7 @@ RUN wget -P /usr/etc/sysctl.d https://raw.githubusercontent.com/Kicksecure/secur
 RUN wget -P /usr/etc https://raw.githubusercontent.com/GrapheneOS/infrastructure/main/chrony.conf
 
 RUN systemctl disable NetworkManager-wait-online.service && \
-    systemctl mask rpm-ostree-countme.timer
+    systemctl mask rpm-ostree-countme.timer && \
     systemctl enable com.system76.Scheduler.service
 
 RUN rpm-ostree override replace \
