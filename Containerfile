@@ -65,21 +65,3 @@ RUN wget -P /usr/etc https://raw.githubusercontent.com/GrapheneOS/infrastructure
 RUN systemctl disable NetworkManager-wait-online.service && \
     systemctl mask rpm-ostree-countme.timer && \
     systemctl enable com.system76.Scheduler.service
-
-RUN rpm-ostree override replace \
-    --experimental \
-    --from repo=copr:copr.fedorainfracloud.org:kylegospo:bazzite-multilib \
-        mesa-dri-drivers \
-        mesa-libEGL \
-        mesa-libgbm \
-        mesa-libGL \
-        mesa-libglapi \
-        mesa-vulkan-drivers && \
-    if [ ${FEDORA_MAJOR_VERSION} -lt 39 ]; then \
-        rpm-ostree override replace \
-        --experimental \
-        --from repo=copr:copr.fedorainfracloud.org:kylegospo:bazzite \
-            udisks2 \
-            libudisks2 \
-            udisks2-btrfs \
-    ; fi
