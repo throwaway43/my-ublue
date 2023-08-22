@@ -149,9 +149,3 @@ unhide-grub:
   else
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
   fi
-
-install-corectrl:
-  echo 'Installing CoreCtrl...'
-  rpm-ostree install corectrl
-  echo 'Setting needed kargs for CoreCtrl...'
-  rpm-ostree kargs --append="amdgpu.ppfeaturemask=0xffffffff"
