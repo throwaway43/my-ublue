@@ -57,7 +57,8 @@ RUN chmod +x /tmp/scripts/build.sh && \
 RUN wget -P /usr/etc/sysctl.d https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/sysctl.d/30_security-misc.conf && \
     wget -P /usr/etc/sysctl.d https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/sysctl.d/30_security-misc_kexec-disable.conf && \
     wget -P /usr/etc/sysctl.d https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/sysctl.d/30_silent-kernel-printk.conf && \
-    wget -P /usr/etc/modprobe.d https://raw.githubusercontent.com/throwaway43/security-misc/master/etc/modprobe.d/30_security-misc.conf
+    wget -P /usr/etc/modprobe.d https://raw.githubusercontent.com/throwaway43/security-misc/master/etc/modprobe.d/30_security-misc.conf && \
+    wget -P /usr/etc/sysctl.d https://raw.githubusercontent.com/ublue-os/bazzite/main/system_files/desktop/shared/etc/sysctl.d/30-networking.conf
 
 RUN wget -P /usr/etc https://raw.githubusercontent.com/GrapheneOS/infrastructure/main/chrony.conf
 
