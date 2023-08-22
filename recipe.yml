@@ -80,7 +80,6 @@ rpm:
     # image build, BEFORE installing custom RPMs (from the "rpm.install" category).
   remove:
     # Remove the native firefox (from Fedora) in favor of the Flatpak.
-    - gnome-tour
     - gnome-terminal-nautilus
     - gnome-terminal
 
