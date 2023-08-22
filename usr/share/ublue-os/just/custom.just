@@ -44,7 +44,7 @@ zsh-alias:
   echo "alias ls=lsd" > $HOME/.zshrc.d/002-lsd
   echo "alias cat=bat" > $HOME/.zshrc.d/003-bat
   echo 'eval "$(zoxide init zsh)"' > $HOME/.zshrc.d/004-zoxide-setup
-  printf "Don't forget to run 'source $HOME/.zshrc'"
+  printf "Don't forget to run:\nsource $HOME/.zshrc\n"
 
 # Networkmanager trackability reduction
 nm-track-reduc:
