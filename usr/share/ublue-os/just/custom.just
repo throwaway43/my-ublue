@@ -116,18 +116,6 @@ tldr:
 gsettings:
   gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 
-configure-waydroid:
-  #!/usr/bin/env bash
-  SCRIPT='/tmp/waydroid_script'
-  git clone https://github.com/casualsnek/waydroid_script --depth 1 ${SCRIPT}
-  python -m venv venv
-  source venv/bin/activate
-  sudo pip install -r ${SCRIPT}/requirements.txt
-  sudo ${SCRIPT}/main.py
-  sudo pip uninstall -r ${SCRIPT}/requirements.txt -y
-  deactivate
-  sudo rm -rf ${SCRIPT}
-
 hide-grub:
   #!/usr/bin/env bash  
   sudo sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
