@@ -43,7 +43,6 @@ zsh-alias:
   echo "alias sudo=doas" > $HOME/.zshrc.d/001-doas
   echo "alias ls=lsd" > $HOME/.zshrc.d/002-lsd
   echo "alias cat=bat" > $HOME/.zshrc.d/003-bat
-  echo "alias cd=z" > $HOME/.zshrc.d/004-zoxide-alias
   echo 'eval "$(zoxide init zsh)"' > $HOME/.zshrc.d/004-zoxide-setup
   printf "Don't forget to run 'source $HOME/.zshrc'"
 
@@ -116,3 +115,37 @@ tldr:
 # Configure GNOME to your liking
 gsettings:
   gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
+
+configure-waydroid:
+  #!/usr/bin/env bash
+  SCRIPT='/tmp/waydroid_script'
+  git clone https://github.com/casualsnek/waydroid_script --depth 1 ${SCRIPT}
+  python -m venv venv
+  source venv/bin/activate
+  sudo pip install -r ${SCRIPT}/requirements.txt
+  sudo ${SCRIPT}/main.py
+  sudo pip uninstall -r ${SCRIPT}/requirements.txt -y
+  deactivate
+  sudo rm -rf ${SCRIPT}
+
+hide-grub:
+  #!/usr/bin/env bash  
+  sudo sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
+  echo 'GRUB_TIMEOUT_STYLE=hidden' | sudo tee -a /etc/default/grub 1>/dev/null
+  echo 'GRUB_HIDDEN_TIMEOUT=3' | sudo tee -a /etc/default/grub 1>/dev/null
+  if [ -f '/boot/efi/EFI/fedora/grub.cfg' ]; then
+    sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+  else
+    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+  fi
+
+unhide-grub:
+  #!/usr/bin/env bash
+  sudo sed -i '/GRUB_HIDDEN_TIMEOUT=3/d' /etc/default/grub
+  sudo sed -i '/GRUB_TIMEOUT_STYLE=hidden/d' /etc/default/grub
+  sudo sed -i 's/GRUB_TIMEOUT=0/GRUB_TIMEOUT=5/g' /etc/default/grub
+  if [ -f '/boot/efi/EFI/fedora/grub.cfg' ]; then
+    sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+  else
+    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+  fi
