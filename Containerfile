@@ -7,7 +7,7 @@
 
 ARG FEDORA_MAJOR_VERSION=38
 # Warning: changing this might not do anything for you. Read comment above.
-ARG BASE_IMAGE_URL=ghcr.io/ublue-os/bazzite-gnome:latest
+ARG BASE_IMAGE_URL=ghcr.io/ublue-os/bazzite-gnome
 
 FROM ${BASE_IMAGE_URL}:${FEDORA_MAJOR_VERSION}
 
