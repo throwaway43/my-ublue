@@ -65,4 +65,5 @@ RUN wget -P /usr/etc https://raw.githubusercontent.com/GrapheneOS/infrastructure
 
 RUN systemctl disable NetworkManager-wait-online.service && \
     systemctl mask rpm-ostree-countme.timer && \
-    systemctl enable com.system76.Scheduler.service
+    systemctl enable com.system76.Scheduler.service && \
+    systemctl enable bazzite-hardware-setup.service
