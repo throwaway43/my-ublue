@@ -137,3 +137,11 @@ unhide-grub:
   else
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
   fi
+# Export Steam, Lutris and Protontricks from the Bazzite-Arch distrobox
+export-bazzite:
+  distrobox-enter -n bazzite-arch -- '  distrobox-export --app steam'
+  distrobox-enter -n bazzite-arch -- '  distrobox-export --app lutris'
+  distrobox-enter -n bazzite-arch -- '  distrobox-export --app protontricks'
+  distrobox-enter -n bazzite-arch -- '  mkdir -p ~/.steam'
+  distrobox-enter -n bazzite-arch -- '  distrobox-export --bin /usr/bin/steamcmd --export-path ~/.steam'
+  distrobox-enter -n bazzite-arch -- '  mv ~/.steam/steamcmd ~/.steam/steamcmd.sh'
