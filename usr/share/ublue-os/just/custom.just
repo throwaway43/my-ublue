@@ -36,7 +36,7 @@ zsh-qsk:
   gsettings set org.gnome.desktop.interface monospace-font-name 'MesloLGS NF 10'
   stow --dir=$HOME/zsh-quickstart-kit --target="$HOME" zsh
   wget -O $HOME/.p10k.zsh https://raw.githubusercontent.com/throwaway43/dotfiles/main/.p10k.zsh
-  printf "Run the following commands:\nzqs disable-ssh-key-listing\nzqs disable-ssh-key-loading\n"
+  printf "Run:\nzqs disable-ssh-key-listing\nzqs disable-ssh-key-loading\n"
 
 # Setting up aliases for ZSH
 zsh-alias:
@@ -44,7 +44,7 @@ zsh-alias:
   echo "alias ls=lsd" > $HOME/.zshrc.d/002-lsd
   echo "alias cat=bat" > $HOME/.zshrc.d/003-bat
   echo 'eval "$(zoxide init zsh)"' > $HOME/.zshrc.d/004-zoxide-setup
-  printf "Don't forget to run:\nsource $HOME/.zshrc\n"
+  printf "Run:\nsource $HOME/.zshrc\n"
 
 # Networkmanager trackability reduction
 nm-track-reduc:
