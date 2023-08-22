@@ -33,9 +33,6 @@ COPY cosign.pub /usr/share/ublue-os/cosign.pub
 # Copy the recipe that we're building.
 COPY ${RECIPE} /usr/share/ublue-os/recipe.yml
 
-# Copy nix install script and Universal Blue wallpapers RPM from Bling image
-COPY --from=ghcr.io/ublue-os/bling:latest
-
 # Integrate bling justfiles onto image
 COPY --from=ghcr.io/ublue-os/bling:latest /files/usr/share/ublue-os/just /usr/share/ublue-os/just
 
