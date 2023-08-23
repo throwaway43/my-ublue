@@ -116,6 +116,7 @@ tldr:
 # Configure GNOME to your liking
 gsettings:
   gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
+  gsettings set org.gnome.shell disable-extension-version-validation true
 
 hide-grub:
   #!/usr/bin/env bash  
