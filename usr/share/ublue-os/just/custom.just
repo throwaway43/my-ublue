@@ -147,8 +147,9 @@ unhide-grub:
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
   fi
 
-# Install gamemode Export Steam, Lutris and Protontricks from the Bazzite-Arch distrobox
-export-bazzite:
+# Install gamemode and export Steam, Lutris and Protontricks from the Bazzite-Arch distrobox
+first-bazzite:
+  distrobox-enter -n bazzite-arch -- '  sudo pacman -Syu --noconfirm gamemode lib32-gamemode'
   distrobox-enter -n bazzite-arch -- '  distrobox-export --app steam'
   distrobox-enter -n bazzite-arch -- '  distrobox-export --app lutris'
   distrobox-enter -n bazzite-arch -- '  distrobox-export --app protontricks'
