@@ -148,15 +148,13 @@ unhide-grub:
   fi
 
 # Install gamemode and export Steam, Lutris and Protontricks from the Bazzite-Arch distrobox
-first-bazzite:
-  distrobox-enter -n bazzite-arch -- '  sudo pacman -Syu --noconfirm gamemode lib32-gamemode'
+export-bazzite:
   distrobox-enter -n bazzite-arch -- '  distrobox-export --app steam'
   distrobox-enter -n bazzite-arch -- '  distrobox-export --app lutris'
   distrobox-enter -n bazzite-arch -- '  distrobox-export --app protontricks'
   distrobox-enter -n bazzite-arch -- '  mkdir -p ~/.steam'
   distrobox-enter -n bazzite-arch -- '  distrobox-export --bin /usr/bin/steamcmd --export-path ~/.steam'
   distrobox-enter -n bazzite-arch -- '  mv ~/.steam/steamcmd ~/.steam/steamcmd.sh'
-  printf "Add to Launch Options of your desired game:\ngamemoderun %command%\n"
 
 # Disable steamwebhelpers from opening again and killing them afterwards:
 steam-off:
