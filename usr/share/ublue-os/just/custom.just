@@ -116,7 +116,14 @@ tldr:
 # Configure GNOME to your liking
 gsettings:
   gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
+
+# Turn off the extension version validation
+ext-val-off:
   gsettings set org.gnome.shell disable-extension-version-validation true
+
+# Turn on the extension version validation:
+ext-val-on:
+  gsettings set org.gnome.shell disable-extension-version-validation false
 
 hide-grub:
   #!/usr/bin/env bash  
