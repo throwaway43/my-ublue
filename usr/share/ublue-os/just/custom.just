@@ -157,3 +157,12 @@ first-bazzite:
   distrobox-enter -n bazzite-arch -- '  distrobox-export --bin /usr/bin/steamcmd --export-path ~/.steam'
   distrobox-enter -n bazzite-arch -- '  mv ~/.steam/steamcmd ~/.steam/steamcmd.sh'
   printf "Add to Launch Options of your desired game:\ngamemoderun %command%\n"
+
+# Disable steamwebhelpers from opening again and killing them afterwards:
+steam-off:
+  chmod a-x $HOME/.local/share/Steam/ubuntu12_64/steamwebhelper
+  killall steamwebhelper
+
+# Enable steamwebhelpers to open again
+steam-on:
+  chmod a+x $HOME/.local/share/Steam/ubuntu12_64/steamwebhelper
