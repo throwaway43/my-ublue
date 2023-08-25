@@ -43,7 +43,7 @@ zsh-alias:
   echo "alias sudo=doas" > $HOME/.zshrc.d/001-doas
   echo "alias ls=lsd" > $HOME/.zshrc.d/002-lsd
   echo "alias cat=bat" > $HOME/.zshrc.d/003-bat
-  echo "alias sudoedit=doasedit" > HOME/.zshrc.d/005-doasedit
+  echo "alias sudoedit=doasedit" > $HOME/.zshrc.d/005-doasedit
   echo 'eval "$(zoxide init zsh)"' > $HOME/.zshrc.d/004-zoxide-setup
   printf "Run:\nsource $HOME/.zshrc\n"
 
