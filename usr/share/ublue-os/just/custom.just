@@ -86,10 +86,9 @@ udisks:
   echo 'org/gnome/desktop/media-handling/automount-open' | sudo tee /etc/dconf/db/local.d/locks/automount-disable
   sudo dconf update
 
-# Take away the Flatpak Permissions for home and system by default
-flatpak-permissions:
-  flatpak override --user --nofilesystem=home
-  flatpak override --user --nofilesystem=host
+# Proper hardening of Flatpak permissions
+flatpak-harden:
+ git clone https://github.com/throwaway43/kyst ~/.local/share/flatpak/overrides
 
 # Setup Auto-cpufreq (Step 1)
 auto-cpufreq-1:
