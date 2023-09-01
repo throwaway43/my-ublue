@@ -179,6 +179,6 @@ install-brave:
 
 # Harden /etc/fstab
 harden-fstab:
-sudo sed -i 's@defaults@defaults,nodev,noexec,nosuid@g' /etc/fstab
-sudo sed -i 's@shortname=winnt@shortname=winnt,nodev,noexec,nosuid@g' /etc/fstab
-sudo sed -i 's@subvol=home@subvol=home,nodev,nosuid@g' /etc/fstab
+  sudo sed -i 's@defaults@defaults,nodev,noexec,nosuid@g' /etc/fstab
+  sudo sed -i 's@shortname=winnt@shortname=winnt,nodev,noexec,nosuid@g' /etc/fstab
+  sudo sed -i 's@subvol=home@subvol=home,nodev,nosuid@g' /etc/fstab
