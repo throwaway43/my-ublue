@@ -7,4 +7,4 @@ set -oue pipefail
 
 wget -O /etc/yum.repos.d/brave-browser.repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-rpm-ostree install brave-browser brave-keyrings
+rpm-ostree install brave-browser brave-keyring
