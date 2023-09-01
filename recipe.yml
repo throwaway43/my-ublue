@@ -77,8 +77,6 @@ rpm:
     - lsd
     - zoxide
     - corectrl
-    # - brave-browser
-    # - brave-keyring
     - system76-scheduler
     - gnome-shell-extension-dash-to-panel
     - gnome-shell-extension-appindicator
