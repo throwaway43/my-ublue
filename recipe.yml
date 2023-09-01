@@ -67,7 +67,7 @@ rpm:
     # Add your own below:
     # Example:
     # - tilix
-    - kloak
+    # - kloak
     - opendoas
     - stow
     - usbguard-dbus
