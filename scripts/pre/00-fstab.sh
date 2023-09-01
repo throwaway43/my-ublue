@@ -6,4 +6,5 @@
 set -oue pipefail
 
 sed -i 's@defaults@defaults,nodev,noexec,nosuid@g' /etc/fstab
-sed -i 's@winnt@winnt,nodev,noexec,nosuid@g' /etc/fstab
+sed -i 's@shortname=winnt@shortname=winnt,nodev,noexec,nosuid@g' /etc/fstab
+sed -i 's@subvol=home@subvol=home,nodev,nosuid@g' /etc/fstab
