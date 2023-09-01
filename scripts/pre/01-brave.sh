@@ -5,5 +5,6 @@
 # builds actually ran successfully without any errors!
 set -oue pipefail
 
-https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+wget -O /etc/yum.repos.d/brave-browser.repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+rpm-ostree install brave-browser brave-keyrings
