@@ -90,6 +90,8 @@ udisks:
 flatpak-harden:
   rm ~/.local/share/flatpak/overrides/*
   git clone https://github.com/throwaway43/kyst ~/.local/share/flatpak/overrides
+  cp ~/.local/share/flatpak/exports/share/applications/io.freetubeapp.FreeTube.desktop ~/.local/share/applications/
+  sed -i 's|io.freetubeapp.FreeTube @@u|io.freetubeapp.FreeTube --ozone-platform-hint=auto @@u|g' ~/.local/share/applications/io.freetubeapp.FreeTube.desktop
 
 # Setup Auto-cpufreq (Step 1)
 auto-cpufreq-1:
