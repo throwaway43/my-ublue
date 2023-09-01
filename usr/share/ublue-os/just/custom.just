@@ -166,3 +166,13 @@ steam-off:
 # Enable steamwebhelpers to open again
 steam-on:
   chmod a+x $HOME/.local/share/Steam/ubuntu12_64/steamwebhelper
+
+# Install Brave natively
+install-brave:
+  sudo wget -O /etc/yum.repos.d/brave-browser.repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+  echo "repo_gpgcheck=1" | sudo tee -a /etc/yum.repos.d/brave-browser.repo
+  echo "type=rpm" | sudo tee -a /etc/yum.repos.d/brave-browser.repo
+  echo "gpgcheck=1" | sudo tee -a /etc/yum.repos.d/brave-browser.repo
+  echo "gpgkey=file:///etc/pki/rpm-gpg/brave-core.asc" | sudo tee -a /etc/yum.repos.d/brave-browser.repo
+  sudo wget -O /etc/pki/rpm-gpg/brave-core.asc https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+  rpm-ostree install brave-browser brave-keyring
