@@ -118,9 +118,7 @@ firstboot:
     - org.gnome.Loupe
     - org.keepassxc.KeePassXC
     - io.freetubeapp.FreeTube
-    - com.microsoft.Edge
     - com.mattjakeman.ExtensionManager
     - org.gnome.NautilusPreviewer
-    - com.brave.Browser
     - org.onlyoffice.desktopeditors
     - org.qbittorrent.qBittorrent
