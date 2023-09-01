@@ -51,7 +51,6 @@ rpm:
     - https://copr.fedorainfracloud.org/coprs/itsmefma/Kloak/repo/fedora-%FEDORA_VERSION%/itsmefma-Kloak-fedora-%FEDORA_VERSION%.repo
     - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%FEDORA_VERSION%/kylegospo-system76-scheduler-fedora-%FEDORA_VERSION%.repo
     - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-    - https://gitlab.com/divested/divested-release/-/raw/master/divested-release.repo?ref_type=heads
     
   # These RPMs will be installed from your enabled repositories (Fedora's own
   # repos, extra "repos" you've added, etc). The installation is automatically
@@ -79,7 +78,6 @@ rpm:
     - lsd
     - zoxide
     - corectrl
-    - hardened_malloc
     - brave-browser
     - brave-keyring
     - system76-scheduler
