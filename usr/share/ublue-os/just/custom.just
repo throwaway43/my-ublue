@@ -88,7 +88,8 @@ udisks:
 
 # Proper hardening of Flatpak permissions
 flatpak-harden:
- git clone https://github.com/throwaway43/kyst ~/.local/share/flatpak/overrides
+  rm ~/.local/share/flatpak/overrides/*
+  git clone https://github.com/throwaway43/kyst ~/.local/share/flatpak/overrides
 
 # Setup Auto-cpufreq (Step 1)
 auto-cpufreq-1:
