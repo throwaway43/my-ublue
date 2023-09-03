@@ -63,7 +63,7 @@ zsh-alias:
   firewall-cmd --add-service=dhcpv6-client --permanent
 
 # PAM
-pam:
+1-pam:
   sudo authselect select minimal with-faillock without-nullok with-pamaccess
 
 # USBGuard - LET OP! Dit keer diende /var/log/usbguard/usbguard-audit.log getouchd te worden (wss was ook het verwijderen dus zinloos), ook de directory waar de log in zat*
@@ -78,7 +78,7 @@ usbguard:
   gsettings set org.gnome.desktop.privacy usb-protection-level always
 
 # Storage Media Handling
-udisks:
+1-udisks:
   echo '[org/gnome/desktop/media-handling]' | sudo tee /etc/dconf/db/local.d/automount-disable 1>/dev/null
   echo 'automount=false' | sudo tee -a /etc/dconf/db/local.d/automount-disable 1>/dev/null
   echo 'automount-open=false' | sudo tee -a /etc/dconf/db/local.d/automount-disable 1>/dev/null
@@ -191,10 +191,10 @@ install-brave:
   echo 'Hello, World!'
 
 # Does all of the recipes with the 1- prefix
-1-setup: 1-harden-fstab && 1-setup-flatpaks
+1-setup: && 1-harden-fstab && 1-dnssec && 1-pam && 1-udisks && 1-setup-flatpaks
   echo 'Almost done!'
 
 # Enable DNSSEC
-dnssec:
+1-dnssec:
   sudo sed -i 's/#DNSSEC=no/DNSSEC=yes/g' /etc/systemd/resolved.conf
   systemctl restart systemd-resolved
