@@ -7,6 +7,4 @@ set -oue pipefail
 
 systemctl disable NetworkManager-wait-online.service && \
 systemctl mask rpm-ostree-countme.timer && \
-systemctl enable com.system76.Scheduler.service && \
-systemctl unmask dconf-update.service && \
-systemctl enable dconf-update.service
+systemctl enable com.system76.Scheduler.service
