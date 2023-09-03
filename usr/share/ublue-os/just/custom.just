@@ -20,10 +20,10 @@ a1-zsh:
 
 # Setting up essentials on first-boot
 # first-boot:
-  # sudo mkdir /var/home/.snapshots
-  # sudo btrfs subvolume snapshot -r /var/home /var/home/.snapshots/home-1
-  # sudo btrfs subvolume snapshot -r /var/home /var/home/.snapshots/var-1
-  # sudo ostree admin pin 0
+# sudo mkdir /var/home/.snapshots
+# sudo btrfs subvolume snapshot -r /var/home /var/home/.snapshots/home-1
+# sudo btrfs subvolume snapshot -r /var/home /var/home/.snapshots/var-1
+# sudo ostree admin pin 0
 
 # Setting up ZSH Quickstart Kit and the necessary font
 a1-zsh-qsk:
