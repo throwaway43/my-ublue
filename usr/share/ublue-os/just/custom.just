@@ -192,10 +192,14 @@ a0-setup: && a0-nm-track-reduc && a0-machine-id && a0-flatpak-harden && a0-firew
   echo 'Hello, World!'
 
 # Does all of the recipes with the a1- prefix
-a1-setup: && a1-harden-fstab && a1-dnssec && a1-pam && a1-udisks && a1-usbguard && a1-setup-flatpaks && a1-zsh && a1-zsh-qsk && a1-zsh-alias && a1-tldr && a1-auto-cpufreq-1 && a1-auto-cpufreq-2 && a1-install-brave
+a1-setup: && a1-harden-fstab && a1-bazzite-fstab && a1-dnssec && a1-pam && a1-udisks && a1-usbguard && a1-setup-flatpaks && a1-zsh && a1-zsh-qsk && a1-zsh-alias && a1-tldr && a1-auto-cpufreq-1 && a1-auto-cpufreq-2 && a1-install-brave
   echo 'Almost done!'
 
 # Enable DNSSEC
 a1-dnssec:
   sudo sed -i 's/#DNSSEC=no/DNSSEC=yes/g' /etc/systemd/resolved.conf
   systemctl restart systemd-resolved
+
+# Bazzite's fstab config
+a1-bazzite-fstab:
+  sudo sed -i 's/compress=zstd:1/noatime,lazytime,commit=120,discard=async,compress-force=zstd:1,space_cache=v2/g' /etc/fstab
