@@ -4,8 +4,7 @@ enabled-extensions = ['appindicatorsupport@rgcjonas.gmail.com', 'dash-to-panel@j
 
 [org/gnome/desktop/interface]
 clock-show-weekday=true
-color-scheme=prefer-dark
-gtk-theme=adw-gtk3-dark
+color-scheme='prefer-dark'
 
 [org/gnome/desktop/peripherals/touchpad]
 tap-to-click=true
