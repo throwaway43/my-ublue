@@ -10,8 +10,6 @@ setup-flatpaks:
       flatpak install --user --noninteractive flathub $pkg; \
   done
 
-# Include some of your custom scripts here!
-
 # Enable kernel arguments
 kargs:
   rpm-ostree kargs --append=ipv6.disable=1 --append="amdgpu.ppfeaturemask=0xffffffff" --append="rd.luks.options=discard" --append="spectre_v2=on spec_store_bypass_disable=on" --append="l1tf=full,force" --append="mds=full" --append="tsx=off" --append="tsx_async_abort=full" --append="kvm.nx_huge_pages=force" --append="l1d_flush=on" --append="mmio_stale_data=full" --append="slab_nomerge" --append="init_on_alloc=1" --append="init_on_free=1" --append="pti=on" --append="vsyscall=none" --append="page_alloc.shuffle=1" --append="randomize_kstack_offset=on" --append="extra_latent_entropy" --append="debugfs=off" --append="oops=panic" --append="quiet" --append="loglevel=0" --append="random.trust_cpu=off" --append="random.trust_bootloader=off" --append="intel_iommu=on" --append="amd_iommu=on" --append="iommu.passthrough=0" --append="iommu.strict=1"
@@ -22,7 +20,9 @@ zsh:
 
 # Setting up essentials on first-boot
 first-boot:
+  sudo mkdir /var/home/.snapshots
   sudo btrfs subvolume snapshot -r /var/home /var/home/.snapshots/home-1
+  sudo btrfs subvolume snapshot -r /var/home /var/home/.snapshots/var-1
   sudo ostree admin pin 0
 
 # Setting up ZSH Quickstart Kit and the necessary font
