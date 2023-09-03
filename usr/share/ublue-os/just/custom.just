@@ -54,7 +54,7 @@ a0-nm-track-reduc: && a0-machine-id
   sudo systemctl restart NetworkManager
   sudo hostnamectl hostname "localhost"
   sudo chown root:root /etc/NetworkManager/dispatcher.d/no-wait.d/01-no-send-hostname.sh
-  sudo chmod 744 no-wait.d/01-no-send-hostname.sh
+  sudo chmod 744 /etc/NetworkManager/dispatcher.d/no-wait.d/01-no-send-hostname.sh
   sudo ln -s no-wait.d/01-no-send-hostname.sh ./
 
 # Firewall
