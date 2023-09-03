@@ -104,7 +104,7 @@ auto-cpufreq-1:
 auto-cpufreq-2:
   sudo auto-cpufreq --install
   sudo auto-cpufreq --force=powersave
-  rm -rf $HOME/acf
+  sudo rm -rf $HOME/acf
 
 # Recover home from snapshot
 recover-home:
