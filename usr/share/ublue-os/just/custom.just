@@ -89,7 +89,7 @@ a1-udisks: && a1-usbguard
 
 # Proper hardening of Flatpak permissions
 a0-flatpak-harden: && a0-firewall
-  rm ~/.local/share/flatpak/overrides/*
+  rm -f ~/.local/share/flatpak/overrides/*
   git clone https://github.com/throwaway43/kyst ~/.local/share/flatpak/overrides
   cp ~/.local/share/flatpak/exports/share/applications/io.freetubeapp.FreeTube.desktop ~/.local/share/applications/
   sed -i 's|io.freetubeapp.FreeTube @@u|io.freetubeapp.FreeTube --ozone-platform-hint=auto @@u|g' ~/.local/share/applications/io.freetubeapp.FreeTube.desktop
