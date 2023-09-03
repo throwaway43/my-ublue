@@ -95,13 +95,16 @@ flatpak-harden:
 
 # Setup Auto-cpufreq (Step 1)
 auto-cpufreq-1:
-  git clone https://github.com/AdnanHodzic/auto-cpufreq.git $HOME/auto-cpufreq
-  sudo $HOME/auto-cpufreq/auto-cpufreq-installer
+  mkdir $HOME/acf
+  wget -O $HOME/acf/v1.9.8.zip https://github.com/AdnanHodzic/auto-cpufreq/archive/refs/tags/v1.9.8.zip
+  unzip -q $HOME/acf/v1.9.8.zip -d $HOME/acf/
+  sudo $HOME/acf/auto-cpufreq-1.9.8/auto-cpufreq-installer
 
 # Setup Auto-cpufreq (Step 2)
 auto-cpufreq-2:
   sudo auto-cpufreq --install
   sudo auto-cpufreq --force=powersave
+  rm -rf $HOME/acf
 
 # Recover home from snapshot
 recover-home:
