@@ -79,11 +79,11 @@ usbguard:
 
 # Storage Media Handling
 udisks:
-  echo '[org/gnome/desktop/media-handling]' | sudo tee /etc/dconf/db/local.d/automount-disable
-  echo 'automount=false' | sudo tee -a /etc/dconf/db/local.d/automount-disable
-  echo 'automount-open=false' | sudo tee -a /etc/dconf/db/local.d/automount-disable
-  echo 'org/gnome/desktop/media-handling/automount' | sudo tee /etc/dconf/db/local.d/locks/automount-disable
-  echo 'org/gnome/desktop/media-handling/automount-open' | sudo tee /etc/dconf/db/local.d/locks/automount-disable
+  echo '[org/gnome/desktop/media-handling]' | sudo tee /etc/dconf/db/local.d/automount-disable 1>/dev/null
+  echo 'automount=false' | sudo tee -a /etc/dconf/db/local.d/automount-disable 1>/dev/null
+  echo 'automount-open=false' | sudo tee -a /etc/dconf/db/local.d/automount-disable 1>/dev/null
+  echo 'org/gnome/desktop/media-handling/automount' | sudo tee /etc/dconf/db/local.d/locks/automount-disable 1>/dev/null
+  echo 'org/gnome/desktop/media-handling/automount-open' | sudo tee /etc/dconf/db/local.d/locks/automount-disable 1>/dev/null
   sudo dconf update
 
 # Proper hardening of Flatpak permissions
@@ -112,7 +112,7 @@ recover-home:
 
 # Change machine-id
 0-machine-id:
-  echo "b08dfa6083e7567a1921a715000001fb" | sudo tee /etc/machine-id /var/lib/dbus/machine-id
+  echo "b08dfa6083e7567a1921a715000001fb" | sudo tee /etc/machine-id /var/lib/dbus/machine-id 1>/dev/null
 
 # Initialization for tldr:
 tldr:
@@ -173,10 +173,10 @@ steam-on:
 # Install Brave natively
 install-brave:
   sudo wget -O /etc/yum.repos.d/brave-browser.repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-  echo "repo_gpgcheck=1" | sudo tee -a /etc/yum.repos.d/brave-browser.repo
-  echo "type=rpm" | sudo tee -a /etc/yum.repos.d/brave-browser.repo
-  echo "gpgcheck=1" | sudo tee -a /etc/yum.repos.d/brave-browser.repo
-  echo "gpgkey=file:///etc/pki/rpm-gpg/brave-core.asc" | sudo tee -a /etc/yum.repos.d/brave-browser.repo
+  echo "repo_gpgcheck=1" | sudo tee -a /etc/yum.repos.d/brave-browser.repo 1>/dev/null
+  echo "type=rpm" | sudo tee -a /etc/yum.repos.d/brave-browser.repo 1>/dev/null
+  echo "gpgcheck=1" | sudo tee -a /etc/yum.repos.d/brave-browser.repo 1>/dev/null
+  echo "gpgkey=file:///etc/pki/rpm-gpg/brave-core.asc" | sudo tee -a /etc/yum.repos.d/brave-browser.repo 1>/dev/null
   sudo wget -O /etc/pki/rpm-gpg/brave-core.asc https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
   rpm-ostree install brave-browser brave-keyring
 
@@ -193,4 +193,8 @@ install-brave:
 # Does all of the recipes with the 1- prefix
 1-setup: 1-harden-fstab && 1-setup-flatpaks
   echo 'Almost done!'
-  
+
+# Enable DNSSEC
+dnssec:
+  sudo sed -i 's/#DNSSEC=no/DNSSEC=yes/g' /etc/systemd/resolved.conf
+  systemctl restart systemd-resolved
