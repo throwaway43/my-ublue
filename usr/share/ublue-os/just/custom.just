@@ -47,7 +47,6 @@ a11-zsh-alias: && a11-tldr
   echo "alias cat=bat" > $HOME/.zshrc.d/003-bat
   echo "alias sudoedit=doasedit" > $HOME/.zshrc.d/005-doasedit
   echo 'eval "$(zoxide init zsh)"' > $HOME/.zshrc.d/004-zoxide-setup
-  echo "alias just=just --unstable" > $HOME/.zshrc.d/006-just
   printf "Run:\nsource $HOME/.zshrc\n"
 
 # Networkmanager trackability reduction
