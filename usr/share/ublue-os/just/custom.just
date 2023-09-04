@@ -29,6 +29,7 @@ a1-zsh: && a1-zsh-qsk
 a1-zsh-qsk: && a1-zsh-alias
   git clone https://github.com/jandamm/zgenom.git $HOME/zgenom
   git clone https://github.com/unixorn/zsh-quickstart-kit.git $HOME/zsh-quickstart-kit
+  mkdir $HOME/.local/share/fonts
   mkdir $HOME/.local/share/fonts/'MesloLGS NF'
   wget -O $HOME/.local/share/fonts/'MesloLGS NF'/'MesloLGS NF Regular.ttf' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
   wget -O $HOME/.local/share/fonts/'MesloLGS NF'/'MesloLGS NF Bold.ttf' https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
