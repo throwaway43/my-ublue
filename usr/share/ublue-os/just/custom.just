@@ -11,7 +11,7 @@ a1-setup-flatpaks: && a1-zsh
   done
 
 # Enable kernel arguments
-a0-kargs:
+a02-kargs:
   rpm-ostree kargs --append=ipv6.disable=1 --append="amdgpu.ppfeaturemask=0xffffffff" --append="rd.luks.options=discard" --append="spectre_v2=on spec_store_bypass_disable=on" --append="l1tf=full,force" --append="mds=full" --append="tsx=off" --append="tsx_async_abort=full" --append="kvm.nx_huge_pages=force" --append="l1d_flush=on" --append="mmio_stale_data=full" --append="slab_nomerge" --append="init_on_alloc=1" --append="init_on_free=1" --append="pti=on" --append="vsyscall=none" --append="page_alloc.shuffle=1" --append="randomize_kstack_offset=on" --append="extra_latent_entropy" --append="debugfs=off" --append="oops=panic" --append="quiet" --append="loglevel=0" --append="random.trust_cpu=off" --append="random.trust_bootloader=off" --append="intel_iommu=on" --append="amd_iommu=on" --append="iommu.passthrough=0" --append="iommu.strict=1"
 
 # Switch to the zsh shell
@@ -51,7 +51,7 @@ a1-zsh-alias: && a1-tldr
   printf "Run:\nsource $HOME/.zshrc\n"
 
 # Networkmanager trackability reduction
-a0-nm-track-reduc: && a0-machine-id
+a01-nm-track-reduc: && a01-machine-id
   sudo nmcli general reload conf
   sudo systemctl restart NetworkManager
   sudo hostnamectl hostname "localhost"
@@ -60,7 +60,7 @@ a0-nm-track-reduc: && a0-machine-id
   sudo ln -s /etc/NetworkManager/dispatcher.d/no-wait.d/01-no-send-hostname.sh /etc/NetworkManager/dispatcher.d/
 
 # Firewall
-a0-firewall: && a0-kargs
+a02-firewall: && a02-kargs
   firewall-cmd --set-default-zone=drop
   firewall-cmd --add-protocol=ipv6-icmp --permanent
   firewall-cmd --add-service=dhcpv6-client --permanent
@@ -90,7 +90,7 @@ a1-udisks: && a1-usbguard
   sudo dconf update
 
 # Proper hardening of Flatpak permissions
-a0-flatpak-harden: && a0-firewall
+a02-flatpak-harden: && a02-firewall
   rm -rf ~/.local/share/flatpak/overrides/{,.[^.],..?}*
   git clone https://github.com/throwaway43/kyst ~/.local/share/flatpak/overrides
   cp ~/.local/share/flatpak/exports/share/applications/io.freetubeapp.FreeTube.desktop ~/.local/share/applications/
@@ -114,7 +114,7 @@ recover-home:
   sudo cp -pr /var/home/.snapshots/home-1/user /var/home/
 
 # Change machine-id
-a0-machine-id: && a0-flatpak-harden
+a01-machine-id:
   echo "b08dfa6083e7567a1921a715000001fb" | sudo tee /etc/machine-id /var/lib/dbus/machine-id 1>/dev/null
 
 # Initialization for tldr:
@@ -189,9 +189,13 @@ a1-harden-fstab: && a1-bazzite-fstab
   sudo sed -i 's@shortname=winnt@shortname=winnt,nodev,noexec,nosuid@g' /etc/fstab
   sudo sed -i 's@subvol=home@subvol=home,nodev,nosuid@g' /etc/fstab
 
-# Does all of the recipes with the a0- prefix
-a0-setup: && a0-nm-track-reduc
+# Does all of the recipes with the a01- prefix
+a01-setup: && a0-nm-track-reduc
   echo 'Hello, World!'
+
+# Does all of the recipes with the a02- prefix
+a02-setup: && a02-flatpak-harden
+  echo 'Half-way there!'
 
 # Does all of the recipes with the a1- prefix
 a1-setup: && a1-harden-fstab
