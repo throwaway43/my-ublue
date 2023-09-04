@@ -1,7 +1,7 @@
 !include /usr/share/ublue-os/just/bling.just
 
 # Install all flatpaks defined in recipe.yml
-a1-setup-flatpaks: && a1-zsh
+a10-setup-flatpaks: && a10-zsh
   #!/usr/bin/env bash
   echo 'Installing flatpaks from the ublue recipe ...'
   flatpaks=$(yq -- '.firstboot.flatpaks[]' "/usr/share/ublue-os/recipe.yml")
@@ -11,11 +11,11 @@ a1-setup-flatpaks: && a1-zsh
   done
 
 # Enable kernel arguments
-a02-kargs:
+a01-kargs:
   rpm-ostree kargs --append=ipv6.disable=1 --append="amdgpu.ppfeaturemask=0xffffffff" --append="rd.luks.options=discard" --append="spectre_v2=on spec_store_bypass_disable=on" --append="l1tf=full,force" --append="mds=full" --append="tsx=off" --append="tsx_async_abort=full" --append="kvm.nx_huge_pages=force" --append="l1d_flush=on" --append="mmio_stale_data=full" --append="slab_nomerge" --append="init_on_alloc=1" --append="init_on_free=1" --append="pti=on" --append="vsyscall=none" --append="page_alloc.shuffle=1" --append="randomize_kstack_offset=on" --append="extra_latent_entropy" --append="debugfs=off" --append="oops=panic" --append="quiet" --append="loglevel=0" --append="random.trust_cpu=off" --append="random.trust_bootloader=off" --append="intel_iommu=on" --append="amd_iommu=on" --append="iommu.passthrough=0" --append="iommu.strict=1"
 
 # Switch to the zsh shell
-a1-zsh: && a1-zsh-qsk
+a10-zsh: && a10-zsh-qsk
   sudo lchsh $USER /usr/bin/zsh
 
 # Setting up essentials on first-boot
@@ -26,7 +26,7 @@ a1-zsh: && a1-zsh-qsk
 # sudo ostree admin pin 0
 
 # Setting up ZSH Quickstart Kit and the necessary font
-a1-zsh-qsk: && a1-zsh-alias
+a10-zsh-qsk:
   git clone https://github.com/jandamm/zgenom.git $HOME/zgenom
   git clone https://github.com/unixorn/zsh-quickstart-kit.git $HOME/zsh-quickstart-kit
   mkdir $HOME/.local/share/fonts
@@ -41,7 +41,7 @@ a1-zsh-qsk: && a1-zsh-alias
   printf "Run:\nzqs disable-ssh-key-listing\nzqs disable-ssh-key-loading\n"
 
 # Setting up aliases for ZSH
-a1-zsh-alias: && a1-tldr
+a11-zsh-alias: && a11-tldr
   echo "alias sudo=doas" > $HOME/.zshrc.d/001-doas
   echo "alias ls=lsd" > $HOME/.zshrc.d/002-lsd
   echo "alias cat=bat" > $HOME/.zshrc.d/003-bat
@@ -51,7 +51,7 @@ a1-zsh-alias: && a1-tldr
   printf "Run:\nsource $HOME/.zshrc\n"
 
 # Networkmanager trackability reduction
-a01-nm-track-reduc: && a01-machine-id
+a00-nm-track-reduc: && a00-machine-id
   sudo nmcli general reload conf
   sudo systemctl restart NetworkManager
   sudo hostnamectl hostname "localhost"
@@ -60,17 +60,17 @@ a01-nm-track-reduc: && a01-machine-id
   sudo ln -s /etc/NetworkManager/dispatcher.d/no-wait.d/01-no-send-hostname.sh /etc/NetworkManager/dispatcher.d/
 
 # Firewall
-a02-firewall: && a02-kargs
+a01-firewall: && a01-kargs
   firewall-cmd --set-default-zone=drop
   firewall-cmd --add-protocol=ipv6-icmp --permanent
   firewall-cmd --add-service=dhcpv6-client --permanent
 
 # PAM
-a1-pam: && a1-udisks
+a10-pam: && a10-udisks
   sudo authselect select minimal with-faillock without-nullok with-pamaccess
 
 # USBGuard - LET OP! Dit keer diende /var/log/usbguard/usbguard-audit.log getouchd te worden (wss was ook het verwijderen dus zinloos), ook de directory waar de log in zat*
-a1-usbguard: && a1-setup-flatpaks
+a10-usbguard: && a10-setup-flatpaks
   usbguard generate-policy > $HOME/rules.conf
   sudo install -m 0600 -o root -g root $HOME/rules.conf /etc/usbguard/rules.conf
   rm $HOME/rules.conf
@@ -81,7 +81,7 @@ a1-usbguard: && a1-setup-flatpaks
   gsettings set org.gnome.desktop.privacy usb-protection-level always
 
 # Storage Media Handling
-a1-udisks: && a1-usbguard
+a10-udisks: && a10-usbguard
   echo '[org/gnome/desktop/media-handling]' | sudo tee /etc/dconf/db/local.d/automount-disable 1>/dev/null
   echo 'automount=false' | sudo tee -a /etc/dconf/db/local.d/automount-disable 1>/dev/null
   echo 'automount-open=false' | sudo tee -a /etc/dconf/db/local.d/automount-disable 1>/dev/null
@@ -90,21 +90,21 @@ a1-udisks: && a1-usbguard
   sudo dconf update
 
 # Proper hardening of Flatpak permissions
-a02-flatpak-harden: && a02-firewall
+a01-flatpak-harden: && a01-firewall
   rm -rf ~/.local/share/flatpak/overrides/{,.[^.],..?}*
   git clone https://github.com/throwaway43/kyst ~/.local/share/flatpak/overrides
   cp ~/.local/share/flatpak/exports/share/applications/io.freetubeapp.FreeTube.desktop ~/.local/share/applications/
   sed -i 's|io.freetubeapp.FreeTube @@u|io.freetubeapp.FreeTube --ozone-platform-hint=auto @@u|g' ~/.local/share/applications/io.freetubeapp.FreeTube.desktop
 
 # Setup Auto-cpufreq (Step 1)
-a1-auto-cpufreq-1: && a1-auto-cpufreq-2
+a11-auto-cpufreq-1: && a11-auto-cpufreq-2
   mkdir $HOME/acf
   wget -O $HOME/acf/v1.9.8.zip https://github.com/AdnanHodzic/auto-cpufreq/archive/refs/tags/v1.9.8.zip
   unzip -q $HOME/acf/v1.9.8.zip -d $HOME/acf/
   sudo $HOME/acf/auto-cpufreq-1.9.8/auto-cpufreq-installer
 
 # Setup Auto-cpufreq (Step 2)
-a1-auto-cpufreq-2: && a1-install-brave
+a11-auto-cpufreq-2: && a11-install-brave
   sudo auto-cpufreq --install
   sudo auto-cpufreq --force=powersave
   sudo rm -rf $HOME/acf
@@ -114,11 +114,11 @@ recover-home:
   sudo cp -pr /var/home/.snapshots/home-1/user /var/home/
 
 # Change machine-id
-a01-machine-id:
+a00-machine-id:
   echo "b08dfa6083e7567a1921a715000001fb" | sudo tee /etc/machine-id /var/lib/dbus/machine-id 1>/dev/null
 
 # Initialization for tldr:
-a1-tldr: && a1-auto-cpufreq-1
+a11-tldr: && a11-auto-cpufreq-1
   tldr --update
 
 # Configure GNOME to your liking
@@ -174,7 +174,7 @@ steam-on:
   chmod a+x $HOME/.local/share/Steam/ubuntu12_64/steamwebhelper
 
 # Install Brave natively
-a1-install-brave:
+a11-install-brave:
   sudo wget -O /etc/yum.repos.d/brave-browser.repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
   echo "repo_gpgcheck=1" | sudo tee -a /etc/yum.repos.d/brave-browser.repo 1>/dev/null
   echo "type=rpm" | sudo tee -a /etc/yum.repos.d/brave-browser.repo 1>/dev/null
@@ -184,28 +184,31 @@ a1-install-brave:
   rpm-ostree install brave-browser brave-keyring
 
 # Harden /etc/fstab
-a1-harden-fstab: && a1-bazzite-fstab
+a10-harden-fstab: && a10-bazzite-fstab
   sudo sed -i 's@defaults@defaults,nodev,noexec,nosuid@g' /etc/fstab
   sudo sed -i 's@shortname=winnt@shortname=winnt,nodev,noexec,nosuid@g' /etc/fstab
   sudo sed -i 's@subvol=home@subvol=home,nodev,nosuid@g' /etc/fstab
 
-# Does all of the recipes with the a01- prefix
-a01-setup: && a0-nm-track-reduc
+# Does all of the recipes with the a00- prefix
+a00-setup: && a0-nm-track-reduc
   echo 'Hello, World!'
 
-# Does all of the recipes with the a02- prefix
-a02-setup: && a02-flatpak-harden
+# Does all of the recipes with the a01- prefix
+a01-setup: && a01-flatpak-harden
   echo 'Half-way there!'
 
-# Does all of the recipes with the a1- prefix
-a1-setup: && a1-harden-fstab
+# Does all of the recipes with the a10- prefix
+a10-setup: && a10-harden-fstab
   echo 'Almost done!'
 
+a11-setup: && a11-zsh-alias
+  echo 'Veni, vidi, vici'
+
 # Enable DNSSEC
-a1-dnssec: && a1-pam
+a10-dnssec: && a10-pam
   sudo sed -i 's/#DNSSEC=no/DNSSEC=yes/g' /etc/systemd/resolved.conf
   systemctl restart systemd-resolved
 
 # Bazzite's fstab config
-a1-bazzite-fstab: && a1-dnssec
+a10-bazzite-fstab: && a10-dnssec
   sudo sed -i 's/compress=zstd:1/noatime,lazytime,commit=120,discard=async,compress-force=zstd:1,space_cache=v2/g' /etc/fstab
