@@ -180,6 +180,7 @@ a11-gsettings: && a11-install-brave
   gsettings set org.gnome.shell.extensions.dash-to-panel appicon-padding 0
   gsettings set org.gnome.shell.extensions.dash-to-panel tray-padding 0
   gsettings set org.gnome.desktop.interface text-scaling-factor 1.25
+  org.gnome.shell.extensions.appindicator icon-size 32
   
 # Install Brave natively
 a11-install-brave:
