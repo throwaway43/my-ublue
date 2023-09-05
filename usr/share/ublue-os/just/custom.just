@@ -173,6 +173,7 @@ a11-gsettings: && a11-install-brave
   gsettings set org.gnome.shell.extensions.dash-to-panel panel-element-positions '{"0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"centerMonitor"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}]}'
   gsettings set org.gnome.shell.extensions.dash-to-panel focus-highlight false
   gsettings set org.gnome.shell.extensions.dash-to-panel show-favorites false
+  gsettings set org.gnome.shell.extensions.dash-to-panel stockgs-keep-dash true
 
 # Install Brave natively
 a11-install-brave:
