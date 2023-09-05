@@ -236,6 +236,7 @@ export-bazzite:
   distrobox-enter -n bazzite-arch -- '  mkdir -p ~/.steam'
   distrobox-enter -n bazzite-arch -- '  distrobox-export --bin /usr/bin/steamcmd --export-path ~/.steam'
   distrobox-enter -n bazzite-arch -- '  mv ~/.steam/steamcmd ~/.steam/steamcmd.sh'
+  sed -i 's/(on bazzite-arch)/ /g' $HOME/.local/share/applications/bazzite*
 
 # Disable steamwebhelpers from opening again and killing them afterwards:
 steam-off:
