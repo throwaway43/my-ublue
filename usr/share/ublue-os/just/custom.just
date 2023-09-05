@@ -180,8 +180,9 @@ a11-gsettings: && a11-install-brave
   gsettings set org.gnome.shell.extensions.dash-to-panel appicon-padding 0
   gsettings set org.gnome.shell.extensions.dash-to-panel tray-padding 0
   gsettings set org.gnome.desktop.interface text-scaling-factor 1.25
-  org.gnome.shell.extensions.appindicator icon-size 32
-  
+  gsettings set org.gnome.shell.extensions.appindicator icon-size 32
+  gsettings set org.gnome.shell favorite-apps "['io.gitlab.librewolf-community.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Console.desktop', 'org.gnome.TextEditor.desktop']"   
+
 # Install Brave natively
 a11-install-brave:
   sudo wget -O /etc/yum.repos.d/brave-browser.repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
