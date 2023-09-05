@@ -166,6 +166,8 @@ a11-gsettings: && a11-install-brave
   gsettings set org.gnome.nautilus.list-view use-tree-view true
   gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true
   gsettings set org.gnome.desktop.calendar show-weekdate true
+  gsettings set org.gnome.shell disabled-extensions "['background-logo@fedorahosted.org']"
+  gsettings set org.gnome.shell enabled-extensions "['appindicatorsupport@rgcjonas.gmail.com', 'blur-my-shell@aunetx', 'caffeine@patapon.info', 's76-scheduler@mattjakeman.com', 'dash-to-panel@jderose9.github.com']"
 
 # Install Brave natively
 a11-install-brave:
