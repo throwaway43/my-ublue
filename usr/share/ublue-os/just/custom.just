@@ -169,7 +169,10 @@ a11-gsettings: && a11-install-brave
   gsettings set org.gnome.shell disabled-extensions "['background-logo@fedorahosted.org']"
   gsettings set org.gnome.shell enabled-extensions "['appindicatorsupport@rgcjonas.gmail.com', 'blur-my-shell@aunetx', 'caffeine@patapon.info', 's76-scheduler@mattjakeman.com', 'dash-to-panel@jderose9.github.com']"
   gsettings set org.gnome.shell.extensions.dash-to-panel panel-positions '{"0":"TOP"}'
-
+  gsettings set org.gnome.shell.extensions.dash-to-panel panel-sizes '{"0":32}'
+  gsettings set org.gnome.shell.extensions.dash-to-panel panel-element-positions '{"0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"centerMonitor"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}]}'
+  gsettings set org.gnome.shell.extensions.dash-to-panel focus-highlight false
+  gsettings set org.gnome.shell.extensions.dash-to-panel show-favorites false
 
 # Install Brave natively
 a11-install-brave:
