@@ -82,8 +82,8 @@ a10-usbguard: && a10-setup-flatpaks
   usbguard generate-policy > $HOME/rules.conf
   sudo install -m 0600 -o root -g root $HOME/rules.conf /etc/usbguard/rules.conf
   rm $HOME/rules.conf
-  sudo rm -rf /var/log/usbguard/
-  sudo mkdir /var/log/usbguard/
+  sudo rm -f /var/log/usbguard/usbguard-audit.log
+  sudo mkdir -p /var/log/usbguard/
   systemctl start usbguard-dbus.service
   systemctl enable usbguard-dbus.service
   gsettings set org.gnome.desktop.privacy usb-protection true
