@@ -77,11 +77,12 @@ a10-udisks: && a10-usbguard
   echo 'org/gnome/desktop/media-handling/automount-open' | sudo tee /etc/dconf/db/local.d/locks/automount-disable 1>/dev/null
   sudo dconf update
 
-# USBGuard - LET OP! Dit keer diende /var/log/usbguard/usbguard-audit.log getouchd te worden (wss was ook het verwijderen dus zinloos), ook de directory waar de log in zat*
+# Setup USBGuard 
 a10-usbguard: && a10-setup-flatpaks
   usbguard generate-policy > $HOME/rules.conf
   sudo install -m 0600 -o root -g root $HOME/rules.conf /etc/usbguard/rules.conf
   rm $HOME/rules.conf
+  sudo mkdir /var/log/usbguard/
   sudo rm -f /var/log/usbguard/usbguard-audit.log
   systemctl start usbguard-dbus.service
   systemctl enable usbguard-dbus.service
