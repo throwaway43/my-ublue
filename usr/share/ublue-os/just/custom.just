@@ -211,3 +211,7 @@ a10-dnssec: && a10-pam
 # Bazzite's fstab config
 a10-bazzite-fstab: && a10-dnssec
   sudo sed -i 's/compress=zstd:1/noatime,lazytime,commit=120,discard=async,compress-force=zstd:1,space_cache=v2/g' /etc/fstab
+
+# Reset dconf
+reset-dconf:
+  dconf reset -f /org/gnome/
