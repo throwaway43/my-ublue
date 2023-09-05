@@ -160,7 +160,7 @@ a11-gsettings: && a11-install-brave
   gsettings set org.gnome.desktop.interface show-battery-percentage true
   gsettings set org.gnome.desktop.peripherals.touchpad speed 0.5
   gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us+euro'), ('xkb', 'us+alt-intl'), ('xkb', 'tr')]"
-  gsettings set org.gnome.system.locale region 'nl_NL.UTF-8'
+  gsettings set org.gnome.system.locale region 'en_HK.UTF-8'
   gsettings set org.gnome.desktop.interface clock-show-weekday true
   gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true
   gsettings set org.gnome.nautilus.list-view use-tree-view true
