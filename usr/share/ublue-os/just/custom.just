@@ -214,4 +214,4 @@ a10-bazzite-fstab: && a10-dnssec
 
 # Reset dconf
 reset-dconf:
-  dconf reset -f /org/gnome/
+  dconf reset -f /org/
