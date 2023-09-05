@@ -170,11 +170,17 @@ a11-gsettings: && a11-install-brave
   gsettings set org.gnome.shell enabled-extensions "['appindicatorsupport@rgcjonas.gmail.com', 'blur-my-shell@aunetx', 'caffeine@patapon.info', 's76-scheduler@mattjakeman.com', 'dash-to-panel@jderose9.github.com']"
   gsettings set org.gnome.shell.extensions.dash-to-panel panel-positions '{"0":"TOP"}'
   gsettings set org.gnome.shell.extensions.dash-to-panel panel-sizes '{"0":32}'
-  gsettings set org.gnome.shell.extensions.dash-to-panel panel-element-positions '{"0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"centerMonitor"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}]}'
+  gsettings set org.gnome.shell.extensions.dash-to-panel panel-element-positions '{"0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"centerMonitor"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}]}'
   gsettings set org.gnome.shell.extensions.dash-to-panel focus-highlight false
   gsettings set org.gnome.shell.extensions.dash-to-panel show-favorites false
   gsettings set org.gnome.shell.extensions.dash-to-panel stockgs-keep-dash true
-
+  gsettings set org.gnome.shell.extensions.dash-to-panel dot-position 'TOP'
+  gsettings set org.gnome.shell.extensions.dash-to-panel dot-style-focused 'CILIORA'
+  gsettings set org.gnome.shell.extensions.dash-to-panel dot-style-unfocused 'SQUARES'
+  gsettings set org.gnome.shell.extensions.dash-to-panel appicon-padding 0
+  gsettings set org.gnome.shell.extensions.dash-to-panel tray-padding 0
+  gsettings set org.gnome.desktop.interface text-scaling-factor 1.25
+  
 # Install Brave natively
 a11-install-brave:
   sudo wget -O /etc/yum.repos.d/brave-browser.repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
