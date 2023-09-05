@@ -165,6 +165,7 @@ a11-gsettings: && a11-install-brave
   gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true
   gsettings set org.gnome.nautilus.list-view use-tree-view true
   gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true
+  gsettings set org.gnome.desktop.calendar show-weekdate true
 
 # Install Brave natively
 a11-install-brave:
