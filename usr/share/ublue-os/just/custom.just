@@ -249,7 +249,7 @@ steam-on:
 reset-dconf:
   dconf reset -f /org/
 
-# Setup ~/Downloads/ProtonVPN.conf as VPN
+# Setup ProtonVPN from config file in ~/Downloads
 setup-vpn:
   mv $HOME/Downloads/*.conf $HOME/Downloads/ProtonVPN.conf
   sed -i '/^DNS.*/a PostUp  =  iptables -I OUTPUT ! -o %i -m mark ! --mark $(wg show %i fwmark) -m addrtype ! --dst-type LOCAL -j REJECT && ip6tables -I OUTPUT ! -o %i -m mark ! --mark $(wg show %i fwmark) -m addrtype ! --dst-type LOCAL -j REJECT' $HOME/Downloads/ProtonVPN.conf
