@@ -74,7 +74,7 @@ a10-udisks: && a10-usbguard
   echo 'automount=false' | sudo tee -a /etc/dconf/db/local.d/automount-disable 1>/dev/null
   echo 'automount-open=false' | sudo tee -a /etc/dconf/db/local.d/automount-disable 1>/dev/null
   echo 'org/gnome/desktop/media-handling/automount' | sudo tee /etc/dconf/db/local.d/locks/automount-disable 1>/dev/null
-  echo 'org/gnome/desktop/media-handling/automount-open' | sudo tee /etc/dconf/db/local.d/locks/automount-disable 1>/dev/null
+  echo 'org/gnome/desktop/media-handling/automount-open' | sudo -a tee /etc/dconf/db/local.d/locks/automount-disable 1>/dev/null
   sudo dconf update
 
 # Setup USBGuard 
@@ -188,6 +188,8 @@ a11-gsettings: && a11-install-brave
   gsettings set org.gnome.desktop.background picture-uri 'file:///var/home/user/.local/share/backgrounds/CosmicCliffs.png'
   gsettings set org.gnome.desktop.background picture-uri-dark 'file:///var/home/user/.local/share/backgrounds/CosmicCliffs.png'
   gsettings set org.gnome.desktop.screensaver picture-uri 'file:///var/home/user/.local/share/backgrounds/CosmicCliffs.png'
+  cp /usr/share/applications/org.gnome.Extensions.desktop $HOME/.local/share/applications
+  echo "NoDisplay=true" | tee -a $HOME/.local/share/applications/org.gnome.Extensions.desktop 1>/dev/null
 
 # Install Brave natively
 a11-install-brave:
