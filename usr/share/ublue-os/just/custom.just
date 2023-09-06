@@ -103,6 +103,8 @@ a10-setup-flatpaks: && a10-zsh
 a10-zsh: && a10-zsh-qsk
   sudo lchsh $USER /usr/bin/zsh
 
+# HET GEDEELTE HIERONDER MET FONTS EN MESLO FIXT ME NIFFO MET: fc-cache -f /usr/share/fonts/<insert name of fonts/directory/folder whatever>
+
 # Setting up ZSH Quickstart Kit and the necessary font
 a10-zsh-qsk:
   git clone https://github.com/jandamm/zgenom.git $HOME/zgenom
