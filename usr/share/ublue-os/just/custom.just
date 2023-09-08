@@ -185,6 +185,7 @@ a11-gsettings: && a11-install-brave
   gsettings set org.gnome.desktop.interface text-scaling-factor 1.25
   gsettings set org.gnome.shell.extensions.appindicator icon-size 32
   gsettings set org.gnome.shell favorite-apps "['io.gitlab.librewolf-community.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Console.desktop', 'org.gnome.TextEditor.desktop']"   
+  gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
   mkdir -p $HOME/.local/share/backgrounds
   wget -O $HOME/.local/share/backgrounds/CosmicCliffs.png https://stsci-opo.org/STScI-01GA6KNV1S3TP2JBPCDT8G826T.png
   gsettings set org.gnome.desktop.background picture-uri 'file:///var/home/user/.local/share/backgrounds/CosmicCliffs.png'
