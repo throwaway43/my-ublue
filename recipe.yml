@@ -79,7 +79,6 @@ rpm:
     - corectrl
     - system76-scheduler
     - wireguard-tools
-    - kvantum
     - gnome-shell-extension-dash-to-panel
     - gnome-shell-extension-appindicator
     - gnome-shell-extension-blur-my-shell
