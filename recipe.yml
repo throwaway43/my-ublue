@@ -123,3 +123,4 @@ firstboot:
     - org.gnome.NautilusPreviewer
     - org.onlyoffice.desktopeditors
     - org.qbittorrent.qBittorrent
+    - org.mozilla.Thunderbird
