@@ -125,3 +125,5 @@ firstboot:
     - org.onlyoffice.desktopeditors
     - org.qbittorrent.qBittorrent
     - org.mozilla.Thunderbird
+    - org.kde.KStyle.Kvantum
+    
