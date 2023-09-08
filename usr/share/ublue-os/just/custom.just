@@ -31,7 +31,7 @@ a01-setup: && a01-flatpak-harden
 # Proper hardening of Flatpak permissions
 a01-flatpak-harden: && a01-firewall
   rm -rf ~/.local/share/flatpak/overrides/{,.[^.],..?}*
-  git clone https://github.com/throwaway43/kyst ~/.local/share/flatpak/overrides
+  git clone https://github.com/throwaway43/kyst $HOME/.local/share/flatpak/overrides
   cp ~/.local/share/flatpak/exports/share/applications/io.freetubeapp.FreeTube.desktop ~/.local/share/applications/
   sed -i 's|io.freetubeapp.FreeTube @@u|io.freetubeapp.FreeTube --ozone-platform-hint=auto @@u|g' ~/.local/share/applications/io.freetubeapp.FreeTube.desktop
 
@@ -193,6 +193,12 @@ a11-gsettings: && a11-install-brave
   gsettings set org.gnome.desktop.screensaver picture-uri 'file:///var/home/user/.local/share/backgrounds/CosmicCliffs.png'
   cp /usr/share/applications/org.gnome.Extensions.desktop $HOME/.local/share/applications
   echo 'NoDisplay=true' | tee -a $HOME/.local/share/applications/org.gnome.Extensions.desktop 1>/dev/null
+  git clone https://github.com/rafaelmardojai/firefox-gnome-theme $HOME/firefox-gnome-theme
+  ./$HOME/firefox-gnome-theme/scripts/auto-install.sh
+  rm -rf $HOME/firefox-gnome-theme
+  git clone https://github.com/rafaelmardojai/thunderbird-gnome-theme $HOME/thunderbird-gnome-theme
+  ./$HOME/thunderbird-gnome-theme/scripts/auto-install.sh
+  rm -rf $HOME/thunderbird-gnome-theme
 
 # Install Brave natively
 a11-install-brave:
