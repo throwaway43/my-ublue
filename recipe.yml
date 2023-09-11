@@ -124,3 +124,5 @@ firstboot:
     - org.onlyoffice.desktopeditors
     - org.qbittorrent.qBittorrent
     - org.mozilla.Thunderbird
+    - org.nickvision.tubeconverter
+    - com.vscodium.codium
