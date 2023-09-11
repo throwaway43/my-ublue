@@ -1,3 +1,6 @@
+# PERSONAL NOTES:
+Investigate if the following is possible: grab pristine file from /etc and change it to fit your needs without 'forcing' your customized file in the /usr/etc in here (n)or relying on just shenanigans
+
 # my-ublue
 
 [![build-ublue](https://github.com/throwaway43/my-ublue/actions/workflows/build.yml/badge.svg)](https://github.com/throwaway43/my-ublue/actions/workflows/build.yml)
