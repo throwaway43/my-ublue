@@ -150,7 +150,7 @@ a11-auto-cpufreq-2: && a11-gsettings
   sudo rm -rf $HOME/acf
 
 # Configure GNOME to your liking
-a11-gsettings: && a11-install-brave
+a11-gsettings: && a11-disable-lid-suspend
   gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
   gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
@@ -199,6 +199,10 @@ a11-gsettings: && a11-install-brave
   git clone https://github.com/rafaelmardojai/thunderbird-gnome-theme $HOME/thunderbird-gnome-theme
   ./$HOME/thunderbird-gnome-theme/scripts/auto-install.sh
   rm -rf $HOME/thunderbird-gnome-theme
+
+# Disable Suspend on Lid close
+a11-disable-lid-suspend: && a11-install-brave
+  sudo sed -i 's/#HandleLidSwitch=suspend/HandleLidSwitch=lock/g' /etc/systemd/logind.conf
 
 # Install Brave natively
 a11-install-brave:
