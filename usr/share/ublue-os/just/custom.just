@@ -222,7 +222,7 @@ recover-home:
 ext-val-off:
   gsettings set org.gnome.shell disable-extension-version-validation true
 
-# Turn on the extension version validation:
+# Turn on the extension version validation
 ext-val-on:
   gsettings set org.gnome.shell disable-extension-version-validation false
 
