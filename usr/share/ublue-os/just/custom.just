@@ -200,8 +200,6 @@ a11-gsettings: && a11-disable-lid-suspend
   git clone https://github.com/rafaelmardojai/thunderbird-gnome-theme $HOME/thunderbird-gnome-theme
   ./$HOME/thunderbird-gnome-theme/scripts/auto-install.sh
   rm -rf $HOME/thunderbird-gnome-theme
-  echo "--ozone-platform=wayland" > $HOME/.var/app/com.microsoft.Edge/config/edge-flags.conf
-  echo "--enable-features=UseOzonePlatform" | tee -a $HOME/.var/app/com.microsoft.Edge/config/edge-flags.conf 1>/dev/null
 
 # Disable Suspend on Lid close
 a11-disable-lid-suspend: && a11-install-brave
