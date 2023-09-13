@@ -126,4 +126,3 @@ firstboot:
     - org.mozilla.Thunderbird
     - org.nickvision.tubeconverter
     - com.vscodium.codium
-    - com.microsoft.Edge
