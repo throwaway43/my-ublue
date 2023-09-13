@@ -5,4 +5,4 @@
 # builds actually ran successfully without any errors!
 set -oue pipefail
 
-wget -P /usr/etc/sysctl.d https://raw.githubusercontent.com/ublue-os/bazzite/main/system_files/desktop/shared/etc/sysctl.d/30-networking.conf
+wget -P /usr/etc/sysctl.d https://raw.githubusercontent.com/ublue-os/bazzite/ea65371d3d867bdfe9ccc8528f31661bfc0728b7/system_files/desktop/shared/usr/lib/sysctl.d/30-networking.conf
