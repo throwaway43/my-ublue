@@ -281,4 +281,5 @@ setup-vpn:
   sed -i '/^[[:space:]]*$/d' ~/Downloads/ProtonVPN.conf
   sudo cp $HOME/Downloads/ProtonVPN.conf /etc/wireguard/
   sudo nmcli con import type wireguard file /etc/wireguard/ProtonVPN.conf
+  nmcli connection modify ProtonVPN autoconnect yes
   rm -f $HOME/Downloads/ProtonVPN.conf
