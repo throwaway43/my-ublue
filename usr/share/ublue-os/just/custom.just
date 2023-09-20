@@ -202,18 +202,8 @@ a11-gsettings: && a11-disable-lid-suspend
   rm -rf $HOME/thunderbird-gnome-theme
 
 # Disable Suspend on Lid close
-a11-disable-lid-suspend: && a11-install-brave
+a11-disable-lid-suspend:
   sudo sed -i 's/#HandleLidSwitch=suspend/HandleLidSwitch=lock/g' /etc/systemd/logind.conf
-
-# Install Brave natively
-a11-install-brave:
-  sudo wget -O /etc/yum.repos.d/brave-browser.repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-  echo "repo_gpgcheck=1" | sudo tee -a /etc/yum.repos.d/brave-browser.repo 1>/dev/null
-  echo "type=rpm" | sudo tee -a /etc/yum.repos.d/brave-browser.repo 1>/dev/null
-  echo "gpgcheck=1" | sudo tee -a /etc/yum.repos.d/brave-browser.repo 1>/dev/null
-  echo "gpgkey=file:///etc/pki/rpm-gpg/brave-core.asc" | sudo tee -a /etc/yum.repos.d/brave-browser.repo 1>/dev/null
-  sudo wget -O /etc/pki/rpm-gpg/brave-core.asc https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-  rpm-ostree install brave-browser brave-keyring
 
 # Recover home from snapshot
 recover-home:
