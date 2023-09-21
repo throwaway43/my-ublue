@@ -50,6 +50,7 @@ rpm:
     # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%FEDORA_VERSION%/atim-starship-fedora-%FEDORA_VERSION%.repo
     - https://copr.fedorainfracloud.org/coprs/itsmefma/Kloak/repo/fedora-%FEDORA_VERSION%/itsmefma-Kloak-fedora-%FEDORA_VERSION%.repo
     - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%FEDORA_VERSION%/kylegospo-system76-scheduler-fedora-%FEDORA_VERSION%.repo
+    - https://rpm.librewolf.net/librewolf-repo.repo
     
   # These RPMs will be installed from your enabled repositories (Fedora's own
   # repos, extra "repos" you've added, etc). The installation is automatically
@@ -80,6 +81,7 @@ rpm:
     - system76-scheduler
     - wireguard-tools
     - chromium
+    - librewolf
     - gnome-shell-extension-dash-to-panel
     - gnome-shell-extension-appindicator
     - gnome-shell-extension-blur-my-shell
