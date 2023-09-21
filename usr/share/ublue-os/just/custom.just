@@ -200,6 +200,8 @@ a11-gsettings: && a11-disable-lid-suspend
   git clone https://github.com/rafaelmardojai/thunderbird-gnome-theme $HOME/thunderbird-gnome-theme
   ./$HOME/thunderbird-gnome-theme/scripts/auto-install.sh
   rm -rf $HOME/thunderbird-gnome-theme
+  cp /usr/share/applications/chromium-browser.desktop $HOME/.local/share/applications
+  sed -i 's|chromium-browser %U|chromium-browser --incognito %U|g' $HOME/.local/share/applications/chromium-browser.desktop
 
 # Disable Suspend on Lid close
 a11-disable-lid-suspend:
