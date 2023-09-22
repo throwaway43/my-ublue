@@ -129,3 +129,5 @@ firstboot:
     - org.mozilla.Thunderbird
     - org.nickvision.tubeconverter
     - com.vscodium.codium
+    - com.usebottles.bottles
+    - org.freedesktop.Platform.VulkanLayer.gamescope
