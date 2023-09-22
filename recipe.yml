@@ -97,6 +97,7 @@ rpm:
     - firefox
     - firefox-langpacks
     - gnome-tour
+    - toolbox
 
 # Configuration for the "first boot" experience, which is available after login.
 firstboot:
