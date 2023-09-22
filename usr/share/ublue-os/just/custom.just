@@ -204,6 +204,7 @@ a11-gsettings: && a11-disable-lid-suspend
   sed -i 's|chromium-browser %U|chromium-browser --incognito %U|g' $HOME/.local/share/applications/chromium-browser.desktop
   cp /usr/share/applications/librewolf.desktop $HOME/.local/share/applications
   echo 'NoDisplay=true' | tee -a $HOME/.local/share/applications/librewolf.desktop 1>/dev/null
+  sed -i '/^Icon.*/a NoDisplay=true' $HOME/.local/share/applications/librewolf.desktop
 
 # Disable Suspend on Lid close
 a11-disable-lid-suspend:
