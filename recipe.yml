@@ -51,6 +51,7 @@ rpm:
     # - https://copr.fedorainfracloud.org/coprs/itsmefma/Kloak/repo/fedora-%FEDORA_VERSION%/itsmefma-Kloak-fedora-%FEDORA_VERSION%.repo
     - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%FEDORA_VERSION%/kylegospo-system76-scheduler-fedora-%FEDORA_VERSION%.repo
     - https://rpm.librewolf.net/librewolf-repo.repo
+    - https://terra.fyralabs.com/terra.repo
     
   # These RPMs will be installed from your enabled repositories (Fedora's own
   # repos, extra "repos" you've added, etc). The installation is automatically
@@ -82,6 +83,7 @@ rpm:
     - wireguard-tools
     - chromium
     - librewolf
+    - keyd
     - gnome-shell-extension-dash-to-panel
     - gnome-shell-extension-appindicator
     - gnome-shell-extension-blur-my-shell
