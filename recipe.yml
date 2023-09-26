@@ -132,4 +132,5 @@ firstboot:
     - org.nickvision.tubeconverter
     - com.vscodium.codium
     - com.usebottles.bottles
+    - md.obsidian.Obsidian
     - org.freedesktop.Platform.VulkanLayer.gamescope
