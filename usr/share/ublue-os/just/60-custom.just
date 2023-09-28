@@ -271,9 +271,6 @@ reset-dconf:
 # Setup ProtonVPN from config file in ~/Downloads
 setup-vpn:
   mv $HOME/Downloads/*.conf $HOME/Downloads/ProtonVPN.conf
-  sed -i '/^DNS.*/a PostUp  =  iptables -I OUTPUT ! -o %i -m mark ! --mark $(wg show %i fwmark) -m addrtype ! --dst-type LOCAL -j REJECT && ip6tables -I OUTPUT ! -o %i -m mark ! --mark $(wg show %i fwmark) -m addrtype ! --dst-type LOCAL -j REJECT' $HOME/Downloads/ProtonVPN.conf
-  sed -i '/^PostUp.*/a PreDown = iptables -D OUTPUT ! -o %i -m mark ! --mark $(wg show  %i fwmark) -m addrtype ! --dst-type LOCAL -j REJECT && ip6tables -D OUTPUT ! -o %i -m mark ! --mark $(wg show  %i fwmark) -m addrtype ! --dst-type LOCAL -j REJECT' $HOME/Downloads/ProtonVPN.conf
-  sed -i '/^[[:space:]]*$/d' ~/Downloads/ProtonVPN.conf
   sudo cp $HOME/Downloads/ProtonVPN.conf /etc/wireguard/
   sudo nmcli con import type wireguard file /etc/wireguard/ProtonVPN.conf
   nmcli connection modify ProtonVPN autoconnect yes
