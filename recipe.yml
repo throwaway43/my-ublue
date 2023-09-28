@@ -133,4 +133,5 @@ firstboot:
     - com.vscodium.codium
     - com.usebottles.bottles
     - md.obsidian.Obsidian
+    - com.github.maoschanz.drawing
     - org.freedesktop.Platform.VulkanLayer.gamescope
