@@ -80,7 +80,6 @@ rpm:
     - zoxide
     - corectrl
     - system76-scheduler
-    - wireguard-tools
     - chromium
     - librewolf
     - keyd
