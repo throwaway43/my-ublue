@@ -133,4 +133,7 @@ firstboot:
     - com.usebottles.bottles
     - md.obsidian.Obsidian
     - com.github.maoschanz.drawing
+    - com.microsoft.Edge
+    - io.mpv.Mpv
     - org.freedesktop.Platform.VulkanLayer.gamescope
+  
