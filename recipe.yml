@@ -134,6 +134,7 @@ firstboot:
     - md.obsidian.Obsidian
     - com.github.maoschanz.drawing
     - com.microsoft.Edge
+    - it.mijorus.gearlever
     - io.mpv.Mpv
     - org.freedesktop.Platform.VulkanLayer.gamescope
   
