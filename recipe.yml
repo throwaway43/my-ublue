@@ -123,7 +123,6 @@ firstboot:
   # This is just an example selection:
   flatpaks:
     - io.github.celluloid_player.Celluloid
-    - org.gnome.TextEditor
     - com.github.tchx84.Flatseal
     - io.gitlab.librewolf-community
     - org.gnome.Calendar
@@ -137,7 +136,6 @@ firstboot:
     - org.mozilla.Thunderbird
     - org.nickvision.tubeconverter
     - com.vscodium.codium
-    - com.usebottles.bottles
     - md.obsidian.Obsidian
     - com.github.maoschanz.drawing
     - com.microsoft.Edge
