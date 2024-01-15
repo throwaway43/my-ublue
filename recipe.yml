@@ -95,7 +95,8 @@ rpm:
     - gnome-shell-extension-blur-my-shell
     - gnome-shell-extension-system76-scheduler
     - gnome-shell-extension-caffeine
-    - gnome-shell-extension-pop-shell 
+    - gnome-shell-extension-pop-shell
+    - gnome-shell-extension-auto-move-windows
     
     # These RPMs will be removed from the system image. This step happens during
     # image build, BEFORE installing custom RPMs (from the "rpm.install" category).
@@ -137,10 +138,7 @@ firstboot:
     - org.mozilla.Thunderbird
     - org.nickvision.tubeconverter
     - com.vscodium.codium
-    - md.obsidian.Obsidian
     - com.github.maoschanz.drawing
     - com.microsoft.Edge
-    - it.mijorus.gearlever
     - io.mpv.Mpv
-    - org.freedesktop.Platform.VulkanLayer.gamescope
-  
+    - org.gtk.Gtk3theme.adw-gtk3-dark  
