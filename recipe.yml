@@ -91,6 +91,7 @@ rpm:
     - gobject-introspection-devel
     - cairo-gobject-devel
     - gtk3-devel
+    - timekpr-next
     - gnome-shell-extension-dash-to-panel
     - gnome-shell-extension-appindicator
     - gnome-shell-extension-blur-my-shell
