@@ -1,4 +1,4 @@
-import /usr/share/ublue-os/just/100-bling.just
+import '100-bling.just'
 
 # Setting up essentials on first-boot
 # first-boot:
