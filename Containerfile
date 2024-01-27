@@ -34,7 +34,7 @@ COPY cosign.pub /usr/share/ublue-os/cosign.pub
 COPY ${RECIPE} /usr/share/ublue-os/recipe.yml
 
 # Integrate bling justfiles onto image
-COPY --from=ghcr.io/ublue-os/bling:latest /files/usr/share/ublue-os/just /usr/share/ublue-os/just
+# COPY --from=ghcr.io/ublue-os/bling:latest /files/usr/share/ublue-os/just /usr/share/ublue-os/just
 
 # Add nix installer if you want to use it
 COPY --from=ghcr.io/ublue-os/bling:latest /files/usr/bin/ublue-nix* /usr/bin
