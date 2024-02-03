@@ -71,7 +71,6 @@ rpm:
     #- kloak
     - opendoas
     - stow
-    - usbguard-dbus
     - gnome-console
     - zsh
     - bat
